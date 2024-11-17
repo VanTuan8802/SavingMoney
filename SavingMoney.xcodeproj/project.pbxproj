@@ -13,6 +13,12 @@
 		AB2439132CE9FE82005DBAE0 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AB2439122CE9FE82005DBAE0 /* Poppins-SemiBold.ttf */; };
 		AB2439152CE9FEB7005DBAE0 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AB2439142CE9FEB7005DBAE0 /* Poppins-Medium.ttf */; };
 		AB2439182CEA02A4005DBAE0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AB2439162CEA02A4005DBAE0 /* Localizable.strings */; };
+		AB24391E2CEA0A60005DBAE0 /* Animation.json in Resources */ = {isa = PBXBuildFile; fileRef = AB24391D2CEA0A60005DBAE0 /* Animation.json */; };
+		AB2439202CEA0B1F005DBAE0 /* ExtentionLottie.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB24391F2CEA0B1F005DBAE0 /* ExtentionLottie.swift */; };
+		AB2439232CEA1610005DBAE0 /* LanguageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2439222CEA1610005DBAE0 /* LanguageView.swift */; };
+		AB2439262CEA268D005DBAE0 /* LanguageEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2439252CEA268D005DBAE0 /* LanguageEnum.swift */; };
+		AB2439292CEA4F6E005DBAE0 /* UserDefaultData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2439282CEA4F6E005DBAE0 /* UserDefaultData.swift */; };
+		AB24392B2CEA50AF005DBAE0 /* IntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB24392A2CEA50AF005DBAE0 /* IntroView.swift */; };
 		AB3187FB2CE9E9A800430DC1 /* SavingMoneyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3187FA2CE9E9A800430DC1 /* SavingMoneyApp.swift */; };
 		AB3187FD2CE9E9A800430DC1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3187FC2CE9E9A800430DC1 /* ContentView.swift */; };
 		AB3187FF2CE9E9AA00430DC1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB3187FE2CE9E9AA00430DC1 /* Assets.xcassets */; };
@@ -34,6 +40,12 @@
 		AB24391A2CEA02F3005DBAE0 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AB24391B2CEA02FE005DBAE0 /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		AB24391C2CEA0304005DBAE0 /* hi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hi; path = hi.lproj/Localizable.strings; sourceTree = "<group>"; };
+		AB24391D2CEA0A60005DBAE0 /* Animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Animation.json; sourceTree = "<group>"; };
+		AB24391F2CEA0B1F005DBAE0 /* ExtentionLottie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtentionLottie.swift; sourceTree = "<group>"; };
+		AB2439222CEA1610005DBAE0 /* LanguageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageView.swift; sourceTree = "<group>"; };
+		AB2439252CEA268D005DBAE0 /* LanguageEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageEnum.swift; sourceTree = "<group>"; };
+		AB2439282CEA4F6E005DBAE0 /* UserDefaultData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultData.swift; sourceTree = "<group>"; };
+		AB24392A2CEA50AF005DBAE0 /* IntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroView.swift; sourceTree = "<group>"; };
 		AB3187F72CE9E9A800430DC1 /* SavingMoney.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SavingMoney.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB3187FA2CE9E9A800430DC1 /* SavingMoneyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingMoneyApp.swift; sourceTree = "<group>"; };
 		AB3187FC2CE9E9A800430DC1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -84,6 +96,30 @@
 			path = Font;
 			sourceTree = "<group>";
 		};
+		AB2439212CEA1598005DBAE0 /* Language */ = {
+			isa = PBXGroup;
+			children = (
+				AB2439222CEA1610005DBAE0 /* LanguageView.swift */,
+			);
+			path = Language;
+			sourceTree = "<group>";
+		};
+		AB2439242CEA2679005DBAE0 /* Emum */ = {
+			isa = PBXGroup;
+			children = (
+				AB2439252CEA268D005DBAE0 /* LanguageEnum.swift */,
+			);
+			path = Emum;
+			sourceTree = "<group>";
+		};
+		AB2439272CEA4F5B005DBAE0 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				AB2439282CEA4F6E005DBAE0 /* UserDefaultData.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		AB3187EE2CE9E9A800430DC1 = {
 			isa = PBXGroup;
 			children = (
@@ -108,6 +144,8 @@
 				AB2439162CEA02A4005DBAE0 /* Localizable.strings */,
 				AB24390A2CE9FDF0005DBAE0 /* Font */,
 				AB31880F2CE9ED2000430DC1 /* Model */,
+				AB2439242CEA2679005DBAE0 /* Emum */,
+				AB2439272CEA4F5B005DBAE0 /* Common */,
 				AB31880E2CE9ED1500430DC1 /* Extention */,
 				AB31880A2CE9EC7600430DC1 /* Presentation */,
 				AB3188092CE9EC5600430DC1 /* Resources */,
@@ -127,6 +165,7 @@
 		AB3188092CE9EC5600430DC1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				AB24391D2CEA0A60005DBAE0 /* Animation.json */,
 				AB2439092CE9FC8D005DBAE0 /* Info.plist */,
 				AB3188102CE9EF2300430DC1 /* R.generated.swift */,
 				AB3187FA2CE9E9A800430DC1 /* SavingMoneyApp.swift */,
@@ -139,7 +178,9 @@
 		AB31880A2CE9EC7600430DC1 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				AB2439212CEA1598005DBAE0 /* Language */,
 				AB31880B2CE9ECD500430DC1 /* Splash */,
+				AB24392A2CEA50AF005DBAE0 /* IntroView.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -155,6 +196,7 @@
 		AB31880E2CE9ED1500430DC1 /* Extention */ = {
 			isa = PBXGroup;
 			children = (
+				AB24391F2CEA0B1F005DBAE0 /* ExtentionLottie.swift */,
 			);
 			path = Extention;
 			sourceTree = "<group>";
@@ -234,6 +276,7 @@
 				AB2439132CE9FE82005DBAE0 /* Poppins-SemiBold.ttf in Resources */,
 				AB2439102CE9FE72005DBAE0 /* Poppins-Regular.ttf in Resources */,
 				AB3188022CE9E9AA00430DC1 /* Preview Assets.xcassets in Resources */,
+				AB24391E2CEA0A60005DBAE0 /* Animation.json in Resources */,
 				AB2439182CEA02A4005DBAE0 /* Localizable.strings in Resources */,
 				AB2439152CE9FEB7005DBAE0 /* Poppins-Medium.ttf in Resources */,
 				AB3187FF2CE9E9AA00430DC1 /* Assets.xcassets in Resources */,
@@ -313,7 +356,12 @@
 				AB3187FD2CE9E9A800430DC1 /* ContentView.swift in Sources */,
 				AB3187FB2CE9E9A800430DC1 /* SavingMoneyApp.swift in Sources */,
 				AB31880D2CE9ECEA00430DC1 /* SplashView.swift in Sources */,
+				AB2439262CEA268D005DBAE0 /* LanguageEnum.swift in Sources */,
 				AB3188112CE9EF2300430DC1 /* R.generated.swift in Sources */,
+				AB24392B2CEA50AF005DBAE0 /* IntroView.swift in Sources */,
+				AB2439232CEA1610005DBAE0 /* LanguageView.swift in Sources */,
+				AB2439292CEA4F6E005DBAE0 /* UserDefaultData.swift in Sources */,
+				AB2439202CEA0B1F005DBAE0 /* ExtentionLottie.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -464,6 +512,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_ASSET_PATHS = "\"SavingMoney/Preview Content\"";
 				DEVELOPMENT_TEAM = Z62PV5W3KU;
 				ENABLE_PREVIEWS = YES;
@@ -495,6 +544,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_ASSET_PATHS = "\"SavingMoney/Preview Content\"";
 				DEVELOPMENT_TEAM = Z62PV5W3KU;
 				ENABLE_PREVIEWS = YES;

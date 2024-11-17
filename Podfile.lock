@@ -1191,6 +1191,7 @@ PODS:
     - IQKeyboardToolbar/Placeholderable
   - Kingfisher (8.1.0)
   - leveldb-library (1.22.6)
+  - lottie-ios (4.5.0)
   - nanopb (2.30910.0):
     - nanopb/decode (= 2.30910.0)
     - nanopb/encode (= 2.30910.0)
@@ -1208,6 +1209,7 @@ DEPENDENCIES:
   - FirebaseStorage
   - IQKeyboardManagerSwift
   - Kingfisher
+  - lottie-ios
   - R.swift
 
 SPEC REPOS:
@@ -1242,6 +1244,7 @@ SPEC REPOS:
     - IQTextView
     - Kingfisher
     - leveldb-library
+    - lottie-ios
     - nanopb
     - PromisesObjC
     - R.swift
@@ -1278,11 +1281,12 @@ SPEC CHECKSUMS:
   IQTextView: ae13b4922f22e6f027f62c557d9f4f236b19d5c7
   Kingfisher: dfbf20b6249ed4ef6f18d6a96c847bce860bdb95
   leveldb-library: cc8b8f8e013647a295ad3f8cd2ddf49a6f19be19
+  lottie-ios: a881093fab623c467d3bce374367755c272bdd59
   nanopb: 438bc412db1928dac798aa6fd75726007be04262
   PromisesObjC: f5707f49cb48b9636751c5b2e7d227e43fba9f47
   R.swift: f573269ca45b2ab066c082e363dd4c2b297b0d71
   RecaptchaInterop: 7d1a4a01a6b2cb1610a47ef3f85f0c411434cb21
 
-PODFILE CHECKSUM: 579a5df6e70902f3d239c9cb61420f1182e8fc0e
+PODFILE CHECKSUM: b55852ac90ca518f850f5122b0b61dd57d5e89ec
 
 COCOAPODS: 1.15.2

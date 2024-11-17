@@ -12,6 +12,7 @@ target 'SavingMoney' do
   pod 'R.swift'
   pod 'IQKeyboardManagerSwift'
   pod 'Kingfisher'
+  pod 'lottie-ios'
   # Pods for SavingMoney
   
 end

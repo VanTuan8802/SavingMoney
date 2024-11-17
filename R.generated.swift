@@ -64,23 +64,56 @@ struct _R {
     }
   }
 
-  /// This `_R.color` struct is generated, and contains static references to 1 colors.
+  /// This `_R.color` struct is generated, and contains static references to 4 colors.
   struct color {
     let bundle: Foundation.Bundle
 
     /// Color `AccentColor`.
     var accentColor: RswiftResources.ColorResource { .init(name: "AccentColor", path: [], bundle: bundle) }
+
+    /// Color `black1B`.
+    var black1B: RswiftResources.ColorResource { .init(name: "black1B", path: [], bundle: bundle) }
+
+    /// Color `blue4F`.
+    var blue4F: RswiftResources.ColorResource { .init(name: "blue4F", path: [], bundle: bundle) }
+
+    /// Color `whiteE6`.
+    var whiteE6: RswiftResources.ColorResource { .init(name: "whiteE6", path: [], bundle: bundle) }
   }
 
-  /// This `_R.image` struct is generated, and contains static references to 2 images.
+  /// This `_R.image` struct is generated, and contains static references to 10 images.
   struct image {
     let bundle: Foundation.Bundle
 
-    /// Image `Splash`.
-    var splash: RswiftResources.ImageResource { .init(name: "Splash", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+    /// Image `buttonBack`.
+    var buttonBack: RswiftResources.ImageResource { .init(name: "buttonBack", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `buttonDone`.
+    var buttonDone: RswiftResources.ImageResource { .init(name: "buttonDone", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `coin`.
+    var coin: RswiftResources.ImageResource { .init(name: "coin", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `english`.
+    var english: RswiftResources.ImageResource { .init(name: "english", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `french`.
+    var french: RswiftResources.ImageResource { .init(name: "french", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `hindi`.
+    var hindi: RswiftResources.ImageResource { .init(name: "hindi", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
     /// Image `icon`.
     var icon: RswiftResources.ImageResource { .init(name: "icon", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `portugeese`.
+    var portugeese: RswiftResources.ImageResource { .init(name: "portugeese", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `spanish`.
+    var spanish: RswiftResources.ImageResource { .init(name: "spanish", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `splash`.
+    var splash: RswiftResources.ImageResource { .init(name: "splash", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
   }
 
   /// This `_R.font` struct is generated, and contains static references to 4 fonts.
@@ -109,9 +142,12 @@ struct _R {
     }
   }
 
-  /// This `_R.file` struct is generated, and contains static references to 4 resource files.
+  /// This `_R.file` struct is generated, and contains static references to 5 resource files.
   struct file {
     let bundle: Foundation.Bundle
+
+    /// Resource file `Animation.json`.
+    var animationJson: RswiftResources.FileResource { .init(name: "Animation", pathExtension: "json", bundle: bundle, locale: LocaleReference.none) }
 
     /// Resource file `Poppins-Bold.ttf`.
     var poppinsBoldTtf: RswiftResources.FileResource { .init(name: "Poppins-Bold", pathExtension: "ttf", bundle: bundle, locale: LocaleReference.none) }
