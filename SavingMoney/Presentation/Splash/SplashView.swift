@@ -9,9 +9,29 @@ import SwiftUI
 
 struct SplashView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            Image(R.image.splash.name, bundle: nil)
+                .resizable()
+                .scaledToFill()
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .ignoresSafeArea()
+            
+            VStack {
+                Image(R.image.icon.name, bundle: nil)
+                    .resizable()
+                    .frame(width: 160, height: 160)
+                Text("Money Manager")
+                    .font(.title)
+                    .foregroundColor(.white)
+                Text("This action can contain ads")
+                    .font(.title)
+                    .foregroundColor(.white)
+            }
+            
+        }
     }
 }
+
 
 #Preview {
     SplashView()
