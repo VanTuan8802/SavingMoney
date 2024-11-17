@@ -21,13 +21,13 @@ struct SplashView: View {
                     .resizable()
                     .frame(width: 160, height: 160)
                 Text("Money Manager")
-                    .font(.title)
+                    .font(.custom(R.file.poppinsSemiBoldTtf.name, size: 24))
                     .foregroundColor(.white)
                 Text("This action can contain ads")
-                    .font(.title)
+                    .font(.custom(R.file.poppinsRegularTtf.name, size: 14))
                     .foregroundColor(.white)
-            }
             
+            }
         }
     }
 }

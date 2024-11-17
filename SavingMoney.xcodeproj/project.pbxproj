@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		2743A04C96B0540B7ED05585 /* Pods_SavingMoney.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA21EC4558A6435FA45F2EC0 /* Pods_SavingMoney.framework */; };
+		AB2439102CE9FE72005DBAE0 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AB24390E2CE9FE72005DBAE0 /* Poppins-Regular.ttf */; };
+		AB2439112CE9FE72005DBAE0 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AB24390F2CE9FE72005DBAE0 /* Poppins-Bold.ttf */; };
+		AB2439132CE9FE82005DBAE0 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AB2439122CE9FE82005DBAE0 /* Poppins-SemiBold.ttf */; };
+		AB2439152CE9FEB7005DBAE0 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AB2439142CE9FEB7005DBAE0 /* Poppins-Medium.ttf */; };
+		AB2439182CEA02A4005DBAE0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AB2439162CEA02A4005DBAE0 /* Localizable.strings */; };
 		AB3187FB2CE9E9A800430DC1 /* SavingMoneyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3187FA2CE9E9A800430DC1 /* SavingMoneyApp.swift */; };
 		AB3187FD2CE9E9A800430DC1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3187FC2CE9E9A800430DC1 /* ContentView.swift */; };
 		AB3187FF2CE9E9AA00430DC1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB3187FE2CE9E9AA00430DC1 /* Assets.xcassets */; };
@@ -19,6 +24,16 @@
 /* Begin PBXFileReference section */
 		091BC6B2530237C77448E590 /* Pods-SavingMoney.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SavingMoney.debug.xcconfig"; path = "Target Support Files/Pods-SavingMoney/Pods-SavingMoney.debug.xcconfig"; sourceTree = "<group>"; };
 		AAA0858B7E5D1D87BD4D276E /* Pods-SavingMoney.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SavingMoney.release.xcconfig"; path = "Target Support Files/Pods-SavingMoney/Pods-SavingMoney.release.xcconfig"; sourceTree = "<group>"; };
+		AB2439092CE9FC8D005DBAE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AB24390E2CE9FE72005DBAE0 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
+		AB24390F2CE9FE72005DBAE0 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
+		AB2439122CE9FE82005DBAE0 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
+		AB2439142CE9FEB7005DBAE0 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
+		AB2439172CEA02A4005DBAE0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		AB2439192CEA02E9005DBAE0 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		AB24391A2CEA02F3005DBAE0 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		AB24391B2CEA02FE005DBAE0 /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		AB24391C2CEA0304005DBAE0 /* hi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hi; path = hi.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AB3187F72CE9E9A800430DC1 /* SavingMoney.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SavingMoney.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB3187FA2CE9E9A800430DC1 /* SavingMoneyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingMoneyApp.swift; sourceTree = "<group>"; };
 		AB3187FC2CE9E9A800430DC1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -58,6 +73,17 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		AB24390A2CE9FDF0005DBAE0 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				AB24390E2CE9FE72005DBAE0 /* Poppins-Regular.ttf */,
+				AB2439142CE9FEB7005DBAE0 /* Poppins-Medium.ttf */,
+				AB24390F2CE9FE72005DBAE0 /* Poppins-Bold.ttf */,
+				AB2439122CE9FE82005DBAE0 /* Poppins-SemiBold.ttf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
 		AB3187EE2CE9E9A800430DC1 = {
 			isa = PBXGroup;
 			children = (
@@ -79,6 +105,10 @@
 		AB3187F92CE9E9A800430DC1 /* SavingMoney */ = {
 			isa = PBXGroup;
 			children = (
+				AB2439162CEA02A4005DBAE0 /* Localizable.strings */,
+				AB24390A2CE9FDF0005DBAE0 /* Font */,
+				AB31880F2CE9ED2000430DC1 /* Model */,
+				AB31880E2CE9ED1500430DC1 /* Extention */,
 				AB31880A2CE9EC7600430DC1 /* Presentation */,
 				AB3188092CE9EC5600430DC1 /* Resources */,
 				AB3188002CE9E9AA00430DC1 /* Preview Content */,
@@ -97,6 +127,7 @@
 		AB3188092CE9EC5600430DC1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				AB2439092CE9FC8D005DBAE0 /* Info.plist */,
 				AB3188102CE9EF2300430DC1 /* R.generated.swift */,
 				AB3187FA2CE9E9A800430DC1 /* SavingMoneyApp.swift */,
 				AB3187FC2CE9E9A800430DC1 /* ContentView.swift */,
@@ -108,8 +139,6 @@
 		AB31880A2CE9EC7600430DC1 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				AB31880F2CE9ED2000430DC1 /* Model */,
-				AB31880E2CE9ED1500430DC1 /* Extention */,
 				AB31880B2CE9ECD500430DC1 /* Splash */,
 			);
 			path = Presentation;
@@ -182,6 +211,10 @@
 			knownRegions = (
 				en,
 				Base,
+				fr,
+				es,
+				"pt-PT",
+				hi,
 			);
 			mainGroup = AB3187EE2CE9E9A800430DC1;
 			productRefGroup = AB3187F82CE9E9A800430DC1 /* Products */;
@@ -198,8 +231,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB2439132CE9FE82005DBAE0 /* Poppins-SemiBold.ttf in Resources */,
+				AB2439102CE9FE72005DBAE0 /* Poppins-Regular.ttf in Resources */,
 				AB3188022CE9E9AA00430DC1 /* Preview Assets.xcassets in Resources */,
+				AB2439182CEA02A4005DBAE0 /* Localizable.strings in Resources */,
+				AB2439152CE9FEB7005DBAE0 /* Poppins-Medium.ttf in Resources */,
 				AB3187FF2CE9E9AA00430DC1 /* Assets.xcassets in Resources */,
+				AB2439112CE9FE72005DBAE0 /* Poppins-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,12 +319,28 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXVariantGroup section */
+		AB2439162CEA02A4005DBAE0 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AB2439172CEA02A4005DBAE0 /* en */,
+				AB2439192CEA02E9005DBAE0 /* fr */,
+				AB24391A2CEA02F3005DBAE0 /* es */,
+				AB24391B2CEA02FE005DBAE0 /* pt-PT */,
+				AB24391C2CEA0304005DBAE0 /* hi */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		AB3188032CE9E9AA00430DC1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -350,6 +404,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -413,6 +468,7 @@
 				DEVELOPMENT_TEAM = Z62PV5W3KU;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SavingMoney/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -443,6 +499,7 @@
 				DEVELOPMENT_TEAM = Z62PV5W3KU;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SavingMoney/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
