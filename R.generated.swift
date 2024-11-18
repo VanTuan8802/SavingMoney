@@ -58,13 +58,90 @@ struct _R {
     }
 
 
-    /// This `_R.string.localizable` struct is generated, and contains static references to 0 localization keys.
+    /// This `_R.string.localizable` struct is generated, and contains static references to 11 localization keys.
     struct localizable {
       let source: RswiftResources.StringResource.Source
+
+      /// en translation: Language
+      ///
+      /// Key: language
+      ///
+      /// Locales: en
+      var language: RswiftResources.StringResource { .init(key: "language", tableName: "Localizable", source: source, developmentValue: "Language", comment: nil) }
+
+      /// en translation: Next
+      ///
+      /// Key: next
+      ///
+      /// Locales: en
+      var next: RswiftResources.StringResource { .init(key: "next", tableName: "Localizable", source: source, developmentValue: "Next", comment: nil) }
+
+      /// en translation: Smart expense tracking, easy to manage
+      ///
+      /// Key: onboard_content_1
+      ///
+      /// Locales: en
+      var onboard_content_1: RswiftResources.StringResource { .init(key: "onboard_content_1", tableName: "Localizable", source: source, developmentValue: "Smart expense tracking, easy to manage", comment: nil) }
+
+      /// en translation: Smart chart for monthly financial   management reporting
+      ///
+      /// Key: onboard_content_2
+      ///
+      /// Locales: en
+      var onboard_content_2: RswiftResources.StringResource { .init(key: "onboard_content_2", tableName: "Localizable", source: source, developmentValue: "Smart chart for monthly financial \n management reporting", comment: nil) }
+
+      /// en translation: Clear income classification with six   recommended spending jars.
+      ///
+      /// Key: onboard_content_3
+      ///
+      /// Locales: en
+      var onboard_content_3: RswiftResources.StringResource { .init(key: "onboard_content_3", tableName: "Localizable", source: source, developmentValue: "Clear income classification with six \n recommended spending jars.", comment: nil) }
+
+      /// en translation: Loans are clearly and tightly categorized.
+      ///
+      /// Key: onboard_content_4
+      ///
+      /// Locales: en
+      var onboard_content_4: RswiftResources.StringResource { .init(key: "onboard_content_4", tableName: "Localizable", source: source, developmentValue: "Loans are clearly and tightly categorized.", comment: nil) }
+
+      /// en translation: Financial management
+      ///
+      /// Key: onboard_title_1
+      ///
+      /// Locales: en
+      var onboard_title_1: RswiftResources.StringResource { .init(key: "onboard_title_1", tableName: "Localizable", source: source, developmentValue: "Financial management", comment: nil) }
+
+      /// en translation: Expense analysis chart
+      ///
+      /// Key: onboard_title_2
+      ///
+      /// Locales: en
+      var onboard_title_2: RswiftResources.StringResource { .init(key: "onboard_title_2", tableName: "Localizable", source: source, developmentValue: "Expense analysis chart", comment: nil) }
+
+      /// en translation: Expense classification
+      ///
+      /// Key: onboard_title_3
+      ///
+      /// Locales: en
+      var onboard_title_3: RswiftResources.StringResource { .init(key: "onboard_title_3", tableName: "Localizable", source: source, developmentValue: "Expense classification", comment: nil) }
+
+      /// en translation: Debt management
+      ///
+      /// Key: onboard_title_4
+      ///
+      /// Locales: en
+      var onboard_title_4: RswiftResources.StringResource { .init(key: "onboard_title_4", tableName: "Localizable", source: source, developmentValue: "Debt management", comment: nil) }
+
+      /// en translation: This action can contain ads
+      ///
+      /// Key: thisActionCanContainAds
+      ///
+      /// Locales: en
+      var thisActionCanContainAds: RswiftResources.StringResource { .init(key: "thisActionCanContainAds", tableName: "Localizable", source: source, developmentValue: "This action can contain ads", comment: nil) }
     }
   }
 
-  /// This `_R.color` struct is generated, and contains static references to 4 colors.
+  /// This `_R.color` struct is generated, and contains static references to 5 colors.
   struct color {
     let bundle: Foundation.Bundle
 
@@ -77,11 +154,14 @@ struct _R {
     /// Color `blue4F`.
     var blue4F: RswiftResources.ColorResource { .init(name: "blue4F", path: [], bundle: bundle) }
 
+    /// Color `purple8B`.
+    var purple8B: RswiftResources.ColorResource { .init(name: "purple8B", path: [], bundle: bundle) }
+
     /// Color `whiteE6`.
     var whiteE6: RswiftResources.ColorResource { .init(name: "whiteE6", path: [], bundle: bundle) }
   }
 
-  /// This `_R.image` struct is generated, and contains static references to 10 images.
+  /// This `_R.image` struct is generated, and contains static references to 14 images.
   struct image {
     let bundle: Foundation.Bundle
 
@@ -105,6 +185,18 @@ struct _R {
 
     /// Image `icon`.
     var icon: RswiftResources.ImageResource { .init(name: "icon", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `intro1`.
+    var intro1: RswiftResources.ImageResource { .init(name: "intro1", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `intro2`.
+    var intro2: RswiftResources.ImageResource { .init(name: "intro2", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `intro3`.
+    var intro3: RswiftResources.ImageResource { .init(name: "intro3", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `intro4`.
+    var intro4: RswiftResources.ImageResource { .init(name: "intro4", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
     /// Image `portugeese`.
     var portugeese: RswiftResources.ImageResource { .init(name: "portugeese", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }

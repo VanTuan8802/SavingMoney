@@ -19,6 +19,8 @@
 		AB2439262CEA268D005DBAE0 /* LanguageEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2439252CEA268D005DBAE0 /* LanguageEnum.swift */; };
 		AB2439292CEA4F6E005DBAE0 /* UserDefaultData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2439282CEA4F6E005DBAE0 /* UserDefaultData.swift */; };
 		AB24392B2CEA50AF005DBAE0 /* IntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB24392A2CEA50AF005DBAE0 /* IntroView.swift */; };
+		AB2439302CEA560E005DBAE0 /* IntroEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB24392F2CEA560E005DBAE0 /* IntroEnum.swift */; };
+		AB2439322CEA56EC005DBAE0 /* L10n.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2439312CEA56EC005DBAE0 /* L10n.swift */; };
 		AB3187FB2CE9E9A800430DC1 /* SavingMoneyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3187FA2CE9E9A800430DC1 /* SavingMoneyApp.swift */; };
 		AB3187FD2CE9E9A800430DC1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3187FC2CE9E9A800430DC1 /* ContentView.swift */; };
 		AB3187FF2CE9E9AA00430DC1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB3187FE2CE9E9AA00430DC1 /* Assets.xcassets */; };
@@ -46,6 +48,8 @@
 		AB2439252CEA268D005DBAE0 /* LanguageEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageEnum.swift; sourceTree = "<group>"; };
 		AB2439282CEA4F6E005DBAE0 /* UserDefaultData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultData.swift; sourceTree = "<group>"; };
 		AB24392A2CEA50AF005DBAE0 /* IntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroView.swift; sourceTree = "<group>"; };
+		AB24392F2CEA560E005DBAE0 /* IntroEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroEnum.swift; sourceTree = "<group>"; };
+		AB2439312CEA56EC005DBAE0 /* L10n.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = L10n.swift; sourceTree = "<group>"; };
 		AB3187F72CE9E9A800430DC1 /* SavingMoney.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SavingMoney.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB3187FA2CE9E9A800430DC1 /* SavingMoneyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingMoneyApp.swift; sourceTree = "<group>"; };
 		AB3187FC2CE9E9A800430DC1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -108,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				AB2439252CEA268D005DBAE0 /* LanguageEnum.swift */,
+				AB24392F2CEA560E005DBAE0 /* IntroEnum.swift */,
 			);
 			path = Emum;
 			sourceTree = "<group>";
@@ -118,6 +123,14 @@
 				AB2439282CEA4F6E005DBAE0 /* UserDefaultData.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		AB24392C2CEA514B005DBAE0 /* Intro */ = {
+			isa = PBXGroup;
+			children = (
+				AB24392A2CEA50AF005DBAE0 /* IntroView.swift */,
+			);
+			path = Intro;
 			sourceTree = "<group>";
 		};
 		AB3187EE2CE9E9A800430DC1 = {
@@ -178,9 +191,9 @@
 		AB31880A2CE9EC7600430DC1 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				AB24392C2CEA514B005DBAE0 /* Intro */,
 				AB2439212CEA1598005DBAE0 /* Language */,
 				AB31880B2CE9ECD500430DC1 /* Splash */,
-				AB24392A2CEA50AF005DBAE0 /* IntroView.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -197,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				AB24391F2CEA0B1F005DBAE0 /* ExtentionLottie.swift */,
+				AB2439312CEA56EC005DBAE0 /* L10n.swift */,
 			);
 			path = Extention;
 			sourceTree = "<group>";
@@ -354,6 +368,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB3187FD2CE9E9A800430DC1 /* ContentView.swift in Sources */,
+				AB2439302CEA560E005DBAE0 /* IntroEnum.swift in Sources */,
 				AB3187FB2CE9E9A800430DC1 /* SavingMoneyApp.swift in Sources */,
 				AB31880D2CE9ECEA00430DC1 /* SplashView.swift in Sources */,
 				AB2439262CEA268D005DBAE0 /* LanguageEnum.swift in Sources */,
@@ -361,6 +376,7 @@
 				AB24392B2CEA50AF005DBAE0 /* IntroView.swift in Sources */,
 				AB2439232CEA1610005DBAE0 /* LanguageView.swift in Sources */,
 				AB2439292CEA4F6E005DBAE0 /* UserDefaultData.swift in Sources */,
+				AB2439322CEA56EC005DBAE0 /* L10n.swift in Sources */,
 				AB2439202CEA0B1F005DBAE0 /* ExtentionLottie.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

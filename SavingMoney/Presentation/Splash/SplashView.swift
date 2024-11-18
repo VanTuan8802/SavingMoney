@@ -52,7 +52,7 @@ struct SplashView: View {
                 }
             }
             .navigationDestination(isPresented: $navigateToLanguageView) {
-                LanguageView().navigationBarHidden(true)
+                LanguageView(languegeIntro: true).navigationBarHidden(true)
             }
         }
     }
