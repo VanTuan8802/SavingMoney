@@ -13,6 +13,7 @@ struct _R {
   let bundle: Foundation.Bundle
   var string: string { .init(bundle: bundle, preferredLanguages: nil, locale: nil) }
   var color: color { .init(bundle: bundle) }
+  var image: image { .init(bundle: bundle) }
   var font: font { .init(bundle: bundle) }
   var file: file { .init(bundle: bundle) }
 
@@ -26,6 +27,9 @@ struct _R {
     .init(bundle: bundle, preferredLanguages: preferredLanguages, locale: locale)
   }
   func color(bundle: Foundation.Bundle) -> color {
+    .init(bundle: bundle)
+  }
+  func image(bundle: Foundation.Bundle) -> image {
     .init(bundle: bundle)
   }
   func font(bundle: Foundation.Bundle) -> font {
@@ -68,6 +72,17 @@ struct _R {
     var accentColor: RswiftResources.ColorResource { .init(name: "AccentColor", path: [], bundle: bundle) }
   }
 
+  /// This `_R.image` struct is generated, and contains static references to 2 images.
+  struct image {
+    let bundle: Foundation.Bundle
+
+    /// Image `icon`.
+    var icon: RswiftResources.ImageResource { .init(name: "icon", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `splash`.
+    var splash: RswiftResources.ImageResource { .init(name: "splash", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+  }
+
   /// This `_R.font` struct is generated, and contains static references to 4 fonts.
   struct font: Sequence {
     let bundle: Foundation.Bundle
@@ -94,9 +109,12 @@ struct _R {
     }
   }
 
-  /// This `_R.file` struct is generated, and contains static references to 5 resource files.
+  /// This `_R.file` struct is generated, and contains static references to 6 resource files.
   struct file {
     let bundle: Foundation.Bundle
+
+    /// Resource file `Animation.json`.
+    var animationJson: RswiftResources.FileResource { .init(name: "Animation", pathExtension: "json", bundle: bundle, locale: LocaleReference.none) }
 
     /// Resource file `GoogleService-Info.plist`.
     var googleServiceInfoPlist: RswiftResources.FileResource { .init(name: "GoogleService-Info", pathExtension: "plist", bundle: bundle, locale: LocaleReference.none) }

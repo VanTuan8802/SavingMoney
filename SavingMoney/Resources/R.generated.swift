@@ -11,17 +11,57 @@ let R = _R(bundle: Bundle(for: BundleFinder.self))
 
 struct _R {
   let bundle: Foundation.Bundle
+  var string: string { .init(bundle: bundle, preferredLanguages: nil, locale: nil) }
   var color: color { .init(bundle: bundle) }
+  var image: image { .init(bundle: bundle) }
+  var font: font { .init(bundle: bundle) }
+  var file: file { .init(bundle: bundle) }
 
+  func string(bundle: Foundation.Bundle) -> string {
+    .init(bundle: bundle, preferredLanguages: nil, locale: nil)
+  }
+  func string(locale: Foundation.Locale) -> string {
+    .init(bundle: bundle, preferredLanguages: nil, locale: locale)
+  }
+  func string(preferredLanguages: [String], locale: Locale? = nil) -> string {
+    .init(bundle: bundle, preferredLanguages: preferredLanguages, locale: locale)
+  }
   func color(bundle: Foundation.Bundle) -> color {
     .init(bundle: bundle)
   }
+  func image(bundle: Foundation.Bundle) -> image {
+    .init(bundle: bundle)
+  }
+  func font(bundle: Foundation.Bundle) -> font {
+    .init(bundle: bundle)
+  }
+  func file(bundle: Foundation.Bundle) -> file {
+    .init(bundle: bundle)
+  }
   func validate() throws {
-
+    try self.font.validate()
   }
 
   struct project {
     let developmentRegion = "en"
+  }
+
+  /// This `_R.string` struct is generated, and contains static references to 1 localization tables.
+  struct string {
+    let bundle: Foundation.Bundle
+    let preferredLanguages: [String]?
+    let locale: Locale?
+    var localizable: localizable { .init(source: .init(bundle: bundle, tableName: "Localizable", preferredLanguages: preferredLanguages, locale: locale)) }
+
+    func localizable(preferredLanguages: [String]) -> localizable {
+      .init(source: .init(bundle: bundle, tableName: "Localizable", preferredLanguages: preferredLanguages, locale: locale))
+    }
+
+
+    /// This `_R.string.localizable` struct is generated, and contains static references to 0 localization keys.
+    struct localizable {
+      let source: RswiftResources.StringResource.Source
+    }
   }
 
   /// This `_R.color` struct is generated, and contains static references to 1 colors.
@@ -30,5 +70,65 @@ struct _R {
 
     /// Color `AccentColor`.
     var accentColor: RswiftResources.ColorResource { .init(name: "AccentColor", path: [], bundle: bundle) }
+  }
+
+  /// This `_R.image` struct is generated, and contains static references to 2 images.
+  struct image {
+    let bundle: Foundation.Bundle
+
+    /// Image `icon`.
+    var icon: RswiftResources.ImageResource { .init(name: "icon", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `splash`.
+    var splash: RswiftResources.ImageResource { .init(name: "splash", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+  }
+
+  /// This `_R.font` struct is generated, and contains static references to 4 fonts.
+  struct font: Sequence {
+    let bundle: Foundation.Bundle
+
+    /// Font `Poppins-Bold`.
+    var poppinsBold: RswiftResources.FontResource { .init(name: "Poppins-Bold", bundle: bundle, filename: "Poppins-Bold.ttf") }
+
+    /// Font `Poppins-Medium`.
+    var poppinsMedium: RswiftResources.FontResource { .init(name: "Poppins-Medium", bundle: bundle, filename: "Poppins-Medium.ttf") }
+
+    /// Font `Poppins-Regular`.
+    var poppinsRegular: RswiftResources.FontResource { .init(name: "Poppins-Regular", bundle: bundle, filename: "Poppins-Regular.ttf") }
+
+    /// Font `Poppins-SemiBold`.
+    var poppinsSemiBold: RswiftResources.FontResource { .init(name: "Poppins-SemiBold", bundle: bundle, filename: "Poppins-SemiBold.ttf") }
+
+    func makeIterator() -> IndexingIterator<[RswiftResources.FontResource]> {
+      [poppinsBold, poppinsMedium, poppinsRegular, poppinsSemiBold].makeIterator()
+    }
+    func validate() throws {
+      for font in self {
+        if !font.canBeLoaded() { throw RswiftResources.ValidationError("[R.swift] Font '\(font.name)' could not be loaded, is '\(font.filename)' added to the UIAppFonts array in this targets Info.plist?") }
+      }
+    }
+  }
+
+  /// This `_R.file` struct is generated, and contains static references to 6 resource files.
+  struct file {
+    let bundle: Foundation.Bundle
+
+    /// Resource file `Animation.json`.
+    var animationJson: RswiftResources.FileResource { .init(name: "Animation", pathExtension: "json", bundle: bundle, locale: LocaleReference.none) }
+
+    /// Resource file `GoogleService-Info.plist`.
+    var googleServiceInfoPlist: RswiftResources.FileResource { .init(name: "GoogleService-Info", pathExtension: "plist", bundle: bundle, locale: LocaleReference.none) }
+
+    /// Resource file `Poppins-Bold.ttf`.
+    var poppinsBoldTtf: RswiftResources.FileResource { .init(name: "Poppins-Bold", pathExtension: "ttf", bundle: bundle, locale: LocaleReference.none) }
+
+    /// Resource file `Poppins-Medium.ttf`.
+    var poppinsMediumTtf: RswiftResources.FileResource { .init(name: "Poppins-Medium", pathExtension: "ttf", bundle: bundle, locale: LocaleReference.none) }
+
+    /// Resource file `Poppins-Regular.ttf`.
+    var poppinsRegularTtf: RswiftResources.FileResource { .init(name: "Poppins-Regular", pathExtension: "ttf", bundle: bundle, locale: LocaleReference.none) }
+
+    /// Resource file `Poppins-SemiBold.ttf`.
+    var poppinsSemiBoldTtf: RswiftResources.FileResource { .init(name: "Poppins-SemiBold", pathExtension: "ttf", bundle: bundle, locale: LocaleReference.none) }
   }
 }
