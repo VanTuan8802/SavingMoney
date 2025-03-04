@@ -58,9 +58,23 @@ struct _R {
     }
 
 
-    /// This `_R.string.localizable` struct is generated, and contains static references to 0 localization keys.
+    /// This `_R.string.localizable` struct is generated, and contains static references to 2 localization keys.
     struct localizable {
       let source: RswiftResources.StringResource.Source
+
+      /// en translation: Language
+      ///
+      /// Key: language
+      ///
+      /// Locales: en
+      var language: RswiftResources.StringResource { .init(key: "language", tableName: "Localizable", source: source, developmentValue: "Language", comment: nil) }
+
+      /// en translation: This action can contain ads
+      ///
+      /// Key: thisActionCanContainAds
+      ///
+      /// Locales: en
+      var thisActionCanContainAds: RswiftResources.StringResource { .init(key: "thisActionCanContainAds", tableName: "Localizable", source: source, developmentValue: "This action can contain ads", comment: nil) }
     }
   }
 
@@ -72,12 +86,33 @@ struct _R {
     var accentColor: RswiftResources.ColorResource { .init(name: "AccentColor", path: [], bundle: bundle) }
   }
 
-  /// This `_R.image` struct is generated, and contains static references to 2 images.
+  /// This `_R.image` struct is generated, and contains static references to 9 images.
   struct image {
     let bundle: Foundation.Bundle
 
+    /// Image `buttonBack`.
+    var buttonBack: RswiftResources.ImageResource { .init(name: "buttonBack", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `buttonDone`.
+    var buttonDone: RswiftResources.ImageResource { .init(name: "buttonDone", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `english`.
+    var english: RswiftResources.ImageResource { .init(name: "english", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `french`.
+    var french: RswiftResources.ImageResource { .init(name: "french", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `hindi`.
+    var hindi: RswiftResources.ImageResource { .init(name: "hindi", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
     /// Image `icon`.
     var icon: RswiftResources.ImageResource { .init(name: "icon", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `portugeese`.
+    var portugeese: RswiftResources.ImageResource { .init(name: "portugeese", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `spanish`.
+    var spanish: RswiftResources.ImageResource { .init(name: "spanish", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
     /// Image `splash`.
     var splash: RswiftResources.ImageResource { .init(name: "splash", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }

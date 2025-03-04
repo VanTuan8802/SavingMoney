@@ -5,3 +5,6 @@
   Created by Tuấn Nguyễn on 2/3/25.
   
 */
+
+language = "Language";
+thisActionCanContainAds = "This action can contain ads";

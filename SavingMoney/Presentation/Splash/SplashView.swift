@@ -38,7 +38,7 @@ struct SplashView: View {
                     
                     
                     
-                    Text("This action can contain ads")
+                    Text(R.l10n.thisActionCanContainAds)
                         .font(.custom(R.file.poppinsRegularTtf.name, size: 14))
                         .foregroundColor(.white)
                         .multilineTextAlignment(.center)
