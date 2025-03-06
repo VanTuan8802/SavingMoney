@@ -55,7 +55,6 @@ struct LanguageView: View {
     
     private var backButton: some View {
         Button(action: {
-            // Action for back button
         }) {
             Image(R.image.buttonBack.name, bundle: nil)
                 .resizable()

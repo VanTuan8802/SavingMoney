@@ -2,25 +2,25 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-    <key>GIDClientID</key>
-    <string>156242870717-172o46qujivaa1ugd748cvkoso6dorui.apps.googleusercontent.com</string>
-    <key>CFBundleURLTypes</key>
-    <array>
-        <dict>
-            <key>CFBundleTypeRole</key>
-            <string>Editor</string>
-            <key>CFBundleURLSchemes</key>
-            <array>
-                <string>apps.googleusercontent.com.156242870717-172o46qujivaa1ugd748cvkoso6dorui</string>
-            </array>
-        </dict>
-    </array>
-    <key>UIAppFonts</key>
-    <array>
-        <string>Poppins-Regular.ttf</string>
-        <string>Poppins-Medium.ttf</string>
-        <string>Poppins-Bold.ttf</string>
-        <string>Poppins-SemiBold.ttf</string>
-    </array>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>apps.googleusercontent.com.156242870717-172o46qujivaa1ugd748cvkoso6dorui</string>
+			</array>
+		</dict>
+	</array>
+	<key>GIDClientID</key>
+	<string>156242870717-172o46qujivaa1ugd748cvkoso6dorui.apps.googleusercontent.com</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Poppins-Regular.ttf</string>
+		<string>Poppins-Medium.ttf</string>
+		<string>Poppins-Bold.ttf</string>
+		<string>Poppins-SemiBold.ttf</string>
+	</array>
 </dict>
 </plist>

@@ -8,11 +8,31 @@
 import SwiftUI
 
 struct CustomButton: View {
+    var title: String
+    var action: () -> Void
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Button(action: {
+            action()
+        }) {
+            Text(title)
+                .font(.custom(R.file.poppinsRegularTtf.name, size: 13))
+                .frame(maxWidth: .infinity)
+                .padding()
+                .foregroundColor(.white)
+                .background(
+                    LinearGradient(gradient: Gradient(colors: [.blue4F, .purple8B]), startPoint: .leading, endPoint: .trailing)
+                )
+                .cornerRadius(10)
+        }
+        .padding(.horizontal, 24)
     }
 }
 
 #Preview {
-    CustomButton()
+    CustomButton(
+        title: "Continue"
+    ) {
+        print("Button pressed!")
+    }
 }
