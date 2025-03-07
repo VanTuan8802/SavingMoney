@@ -46,6 +46,7 @@ struct PermissionView: View {
                     }
                 ).padding(.horizontal,24)
                     .frame(height: 52)
+                
                 PermissionSwitchView(
                     labelText: R.l10n.photo(),
                     permissionType: .photo,
@@ -69,6 +70,7 @@ struct PermissionView: View {
                 CustomButton(title: R.l10n.continue(), action: {
                     navigateToIntro = true
                 }).padding(.bottom, 16)
+                    .padding(.horizontal,24)
                     .navigationDestination(isPresented: $navigateToIntro) {
                         LoginView().navigationBarHidden(true)
                     }

@@ -14,7 +14,7 @@ struct LoginWithGoogle: View {
         VStack {
             HStack {
                 Divider()
-                    .frame(height: 0.3)
+                    .frame(height: 1)
                     .frame(maxWidth:  .infinity)
                     .background(.grey48)
                     .padding(.trailing,0)
@@ -25,7 +25,7 @@ struct LoginWithGoogle: View {
                     .fixedSize()
                     .foregroundColor(.greyAF)
                 Divider()
-                    .frame(height: 0.3)
+                    .frame(height: 1)
                     .frame(maxWidth:  .infinity)
                     .background(.grey48)
                     .padding(.leading, 0)
