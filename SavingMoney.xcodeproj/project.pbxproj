@@ -6,13 +6,33 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		39BA094EB2370DA924215987 /* Pods_SavingMoney.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05C40D964D6E7665D07193A5 /* Pods_SavingMoney.framework */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
+		05C40D964D6E7665D07193A5 /* Pods_SavingMoney.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SavingMoney.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5EC345F8776F9508765DB972 /* Pods-SavingMoney.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SavingMoney.debug.xcconfig"; path = "Target Support Files/Pods-SavingMoney/Pods-SavingMoney.debug.xcconfig"; sourceTree = "<group>"; };
 		AB2EC1852D72098A008584B2 /* SavingMoney.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SavingMoney.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E79EB1F13289013FFA99DB0F /* Pods-SavingMoney.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SavingMoney.release.xcconfig"; path = "Target Support Files/Pods-SavingMoney/Pods-SavingMoney.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		AB2EC21D2D74AEF9008584B2 /* Exceptions for "SavingMoney" folder in "SavingMoney" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Resources/Info.plist,
+			);
+			target = AB2EC1842D72098A008584B2 /* SavingMoney */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		AB2EC1872D72098A008584B2 /* SavingMoney */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				AB2EC21D2D74AEF9008584B2 /* Exceptions for "SavingMoney" folder in "SavingMoney" target */,
+			);
 			path = SavingMoney;
 			sourceTree = "<group>";
 		};
@@ -23,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39BA094EB2370DA924215987 /* Pods_SavingMoney.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -34,6 +55,8 @@
 			children = (
 				AB2EC1872D72098A008584B2 /* SavingMoney */,
 				AB2EC1862D72098A008584B2 /* Products */,
+				CF40088C343DC0B857F897F4 /* Pods */,
+				CC5B716EF24A11190DDFAAE4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -45,6 +68,23 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		CC5B716EF24A11190DDFAAE4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				05C40D964D6E7665D07193A5 /* Pods_SavingMoney.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CF40088C343DC0B857F897F4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5EC345F8776F9508765DB972 /* Pods-SavingMoney.debug.xcconfig */,
+				E79EB1F13289013FFA99DB0F /* Pods-SavingMoney.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -52,9 +92,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AB2EC1932D72098B008584B2 /* Build configuration list for PBXNativeTarget "SavingMoney" */;
 			buildPhases = (
+				645CE0DF2BBC9FEEA124C4A7 /* [CP] Check Pods Manifest.lock */,
+				AB2EC1BA2D720FCD008584B2 /* R.swift */,
 				AB2EC1812D72098A008584B2 /* Sources */,
 				AB2EC1822D72098A008584B2 /* Frameworks */,
 				AB2EC1832D72098A008584B2 /* Resources */,
+				A693BE1199BD27E2BAD21B5B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -64,8 +107,6 @@
 				AB2EC1872D72098A008584B2 /* SavingMoney */,
 			);
 			name = SavingMoney;
-			packageProductDependencies = (
-			);
 			productName = SavingMoney;
 			productReference = AB2EC1852D72098A008584B2 /* SavingMoney.app */;
 			productType = "com.apple.product-type.application";
@@ -91,6 +132,10 @@
 			knownRegions = (
 				en,
 				Base,
+				fr,
+				hi,
+				"pt-PT",
+				es,
 			);
 			mainGroup = AB2EC17C2D72098A008584B2;
 			minimizedProjectReferenceProxies = 1;
@@ -113,6 +158,68 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		645CE0DF2BBC9FEEA124C4A7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SavingMoney-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A693BE1199BD27E2BAD21B5B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SavingMoney/Pods-SavingMoney-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SavingMoney/Pods-SavingMoney-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SavingMoney/Pods-SavingMoney-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AB2EC1BA2D720FCD008584B2 /* R.swift */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = R.swift;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				$SRCROOT/R.generated.swift,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/R.generated.swift\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		AB2EC1812D72098A008584B2 /* Sources */ = {
@@ -246,6 +353,7 @@
 		};
 		AB2EC1942D72098B008584B2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5EC345F8776F9508765DB972 /* Pods-SavingMoney.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -255,17 +363,21 @@
 				DEVELOPMENT_TEAM = Z62PV5W3KU;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SavingMoney/Resources/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.vantuan8802.savingMoney.SavingMoney;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vantuan8802.savingMoney;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -275,6 +387,7 @@
 		};
 		AB2EC1952D72098B008584B2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E79EB1F13289013FFA99DB0F /* Pods-SavingMoney.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -284,17 +397,21 @@
 				DEVELOPMENT_TEAM = Z62PV5W3KU;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SavingMoney/Resources/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.vantuan8802.savingMoney.SavingMoney;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vantuan8802.savingMoney;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
