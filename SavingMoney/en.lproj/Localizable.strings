@@ -46,3 +46,5 @@ incorrectLoginOrPassword = "Incorrect login or password";
 noUserWithEmail = "No user found with this email address.";
 openEmailToConfirmLink = "Open email to confirm link";
 openEmail = "Open Email";
+alreadyHaveAnAccount = "Already have an account?";
+userNameOrMail = "Username or Email";

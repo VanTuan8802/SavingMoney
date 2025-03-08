@@ -28,26 +28,17 @@ struct RegisterView: View {
             ZStack(alignment: .top) {
                 VStack(spacing: 0) {
                     ZStack {
-                        Image(R.image.login.name)
+                        Image(R.image.register.name)
                             .resizable()
                             .frame(height: 320)
                             .ignoresSafeArea(edges: .top)
                         
-                        VStack(spacing: 8) {
-                            Text(R.l10n.helloWelcomeTo)
-                                .font(.custom(R.file.poppinsMediumTtf.name, size: 16))
+                            Text(R.l10n.createAnAccount)
+                                .font(.custom(R.file.poppinsSemiBoldTtf.name, size: 24))
                                 .foregroundColor(.white)
                                 .frame(maxWidth: .infinity, alignment: .leading)
                                 .padding(.leading, 24)
-                            
-                            Text(R.l10n.moneyManager)
-                                .font(.custom(R.file.poppinsMediumTtf.name, size: 24))
-                                .foregroundColor(.white)
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .padding(.leading, 24)
-                        }
-                        .padding(.leading, 24)
-                        .padding(.bottom, 40)
+                                .padding(.bottom,100)
                     }
                     .frame(height: 320)
                     .padding(.top,0)
@@ -55,94 +46,92 @@ struct RegisterView: View {
                 
                 VStack {
                     Spacer().frame(height: 200)
-                    ScrollView {
-                        VStack {
-                            Text(R.l10n.welcomeBack)
-                                .font(.custom(R.file.poppinsMediumTtf.name, size: 12))
-                                .foregroundStyle(.black1B)
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .padding(.leading, 8)
+                    VStack {
+                        ScrollView {
+                            VStack {
+                                HStack {
+                                    Text(R.l10n.alreadyHaveAnAccount)
+                                        .font(.custom(R.file.poppinsRegularTtf.name, size: 12))
+                                    Button(action: {
+                                        self.presentationMode.wrappedValue.dismiss()
+                                    }, label: {
+                                        Text(R.l10n.signIn)
+                                            .font(.custom(R.file.poppinsRegularTtf.name, size: 12))
+                                    })
+                                }.frame(maxWidth: .infinity,alignment: .leading)
+                  
+                                TextField(R.l10n.emailAddress(), text: $email)
+                                    .focused($emailFieldIsFocused)
+                                    .padding()
+                                    .background(Color.greyF6)
+                                    .cornerRadius(10)
+                                    .keyboardType(.emailAddress)
+                                    .autocapitalization(.none)
+                                    .padding(.top, 16)
+                                
+                                SecureField(R.l10n.password(), text: $password)
+                                    .focused($passwordFieldIsFocused)
+                                    .padding()
+                                    .background(Color.greyF6)
+                                    .cornerRadius(10)
+                                    .autocapitalization(.none)
+                                    .padding(.top, 16)
+                                
+                                SecureField(R.l10n.password(), text: $confirmPassword)
+                                    .focused($passwordFieldIsFocused)
+                                    .padding()
+                                    .background(Color.greyF6)
+                                    .cornerRadius(10)
+                                    .autocapitalization(.none)
+                                    .disableAutocorrection(true)
+                                    .padding(.top, 16)
+                                    .padding(.bottom,16)
                             
-                            TextField(R.l10n.emailAddress(), text: $email)
-                                .focused($emailFieldIsFocused)
-                                .padding()
-                                .background(Color.greyF6)
-                                .cornerRadius(10)
-                                .keyboardType(.emailAddress)
-                                .autocapitalization(.none)
-                                .disableAutocorrection(true)
-                                .padding(.top, 16)
-                            
-                            SecureField(R.l10n.password(), text: $password)
-                                .focused($passwordFieldIsFocused)
-                                .padding()
-                                .background(Color.greyF6)
-                                .cornerRadius(10)
-                                .autocapitalization(.none)
-                                .disableAutocorrection(true)
-                                .padding(.top, 16)
-                            
-                            SecureField(R.l10n.password(), text: $confirmPassword)
-                                .focused($passwordFieldIsFocused)
-                                .padding()
-                                .background(Color.greyF6)
-                                .cornerRadius(10)
-                                .autocapitalization(.none)
-                                .disableAutocorrection(true)
-                                .padding(.top, 16)
-                                .padding(.bottom,16)
-                        
-                            
-                            CustomButton(title: R.l10n.signIn()) {
-                                AuthenService.shared.signUpWithEmailPassword(email: email,
-                                                                             password: password,
-                                                                             confirmPassword: confirmPassword) {  success, errorMessage in
-                                    if success {
-                                        
-                                    } else {
-                                        alertTitle = R.l10n.loginFail()
-                                        alertMessage = errorMessage ?? ""
-                                        showAlert = true
+                                
+                                CustomButton(title: R.l10n.signIn()) {
+                                    AuthenService.shared.signUpWithEmailPassword(email: email,
+                                                                                 password: password,
+                                                                                 confirmPassword: confirmPassword) {  success, errorMessage in
+                                        if success {
+                                            isLoggedIn = true
+                                        } else {
+                                            alertTitle = R.l10n.loginFail()
+                                            alertMessage = errorMessage ?? ""
+                                            showAlert = true
+                                        }
                                     }
                                 }
-                            }
-                            .padding(.top, 0)
-                            .navigationDestination(isPresented: $isLoggedIn) {
-                                BaseCurrencyView().navigationBarHidden(true)
-                            }
-                            
-                            LoginWithGoogle()
-                                .padding(.top, 24)
-                            
-                            HStack {
-                                Text(R.l10n.donnotHaveAcount)
-                                    .font(.custom(R.file.poppinsRegularTtf.name, size: 12))
-                                    .foregroundColor(Color.greyC1)
-                                NavigationLink(destination: RegisterView()) {
-                                    Text(R.l10n.signUp)
-                                        .font(.custom(R.file.poppinsRegularTtf.name, size: 12))
+                                .padding(.top, 0)
+                                .navigationDestination(isPresented: $isLoggedIn) {
+                                    BaseCurrencyView().navigationBarHidden(true)
                                 }
+                                
+                                LoginWithGoogle()
+                                    .padding(.top, 24)
+                                
+                                Spacer()
+                                    .frame(height: 60)
+                                
+                                ContinueAsGuest()
+                                
+                                Spacer()
                             }
-                            
-                            Spacer()
-                                .frame(height: 60)
-                            
-                            ContinueAsGuest()
-                            
-                            Spacer()
                         }
-                        .padding(.top, 40)
+                        .scrollIndicators(.hidden)
                         .frame(maxWidth: .infinity)
-                        .padding(.bottom, 0)
-                        .padding(.horizontal, 24)
-                        .background(Color.white)
-                        .cornerRadius(20)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 20)
-                                .stroke(Color.white, lineWidth: 1)
-                        )
+                        .padding(.top, 0)
+                        .clipped()
                     }
-                    .scrollIndicators(.hidden)
+                    .padding(.top, 40)
+                    .frame(maxWidth: .infinity)
+                    .padding(.bottom, 0)
+                    .padding(.horizontal, 24)
+                    .background(Color.white)
+                    .cornerRadius(20)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 20)
+                            .stroke(Color.white, lineWidth: 1)
+                    )
                 }
             }
         }

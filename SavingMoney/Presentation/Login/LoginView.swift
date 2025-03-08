@@ -53,105 +53,108 @@ struct LoginView: View {
                 
                 VStack {
                     Spacer().frame(height: 200)
-                    ScrollView {
-                        VStack {
-                            Text(R.l10n.welcomeBack)
-                                .font(.custom(R.file.poppinsMediumTtf.name, size: 12))
-                                .foregroundStyle(.black1B)
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .padding(.leading, 8)
-                            
-                            TextField(R.l10n.emailAddress(), text: $email)
-                                .focused($emailFieldIsFocused)
-                                .padding()
-                                .background(Color.greyF6)
-                                .cornerRadius(10)
-                                .keyboardType(.emailAddress)
-                                .autocapitalization(.none)
-                                .disableAutocorrection(true)
-                                .padding(.top, 16)
-                            
-                            SecureField(R.l10n.password(), text: $password)
-                                .focused($passwordFieldIsFocused)
-                                .padding()
-                                .background(Color.greyF6)
-                                .cornerRadius(10)
-                                .autocapitalization(.none)
-                                .disableAutocorrection(true)
-                                .padding(.top, 16)
-                            
-                            HStack {
-                                Button(action: {
-                                    AuthenService.shared.sendPasswordReset(email: email) { success, errorMessage in
+                    VStack {
+                        ScrollView {
+                            VStack {
+                                Text(R.l10n.welcomeBack)
+                                    .font(.custom(R.file.poppinsMediumTtf.name, size: 12))
+                                    .foregroundStyle(.black1B)
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                    .padding(.leading, 8)
+                                
+                                TextField(R.l10n.emailAddress(), text: $email)
+                                    .focused($emailFieldIsFocused)
+                                    .padding()
+                                    .background(Color.greyF6)
+                                    .cornerRadius(10)
+                                    .keyboardType(.emailAddress)
+                                    .autocapitalization(.none)
+                                    .disableAutocorrection(true)
+                                    .padding(.top, 16)
+                                
+                                SecureField(R.l10n.password(), text: $password)
+                                    .focused($passwordFieldIsFocused)
+                                    .padding()
+                                    .background(Color.greyF6)
+                                    .cornerRadius(10)
+                                    .autocapitalization(.none)
+                                    .disableAutocorrection(true)
+                                    .padding(.top, 16)
+                                
+                                HStack {
+                                    Button(action: {
+                                        AuthenService.shared.sendPasswordReset(email: email) { success, errorMessage in
+                                            if success {
+                                                alertTitle = R.l10n.openEmail()
+                                                alertMessage = R.l10n.openEmailToConfirmLink()
+                                                showAlert = true
+                                            } else {
+                                                alertTitle = R.l10n.theEmailAdressIsBadlyFormated()
+                                                alertMessage = errorMessage ?? ""
+                                                showAlert = true
+                                            }
+                                        }
+                                    }) {
+                                        Text(R.l10n.forgotPassword())
+                                            .font(.custom(R.file.poppinsRegularTtf.name, size: 13))
+                                            .padding()
+                                            .foregroundColor(.blue4F)
+                                            .fixedSize()
+                                    }
+                                    .frame(maxWidth: .infinity, alignment: .trailing)
+                                }
+                                
+                                CustomButton(title: R.l10n.signIn()) {
+                                    AuthenService.shared.signInWithEmailPassword(email: email,
+                                                                                 password: password) {  success, errorMessage in
                                         if success {
-                                            alertTitle = R.l10n.openEmail()
-                                            alertMessage = R.l10n.openEmailToConfirmLink()
-                                            showAlert = true
+                                            isLoggedIn = true
                                         } else {
-                                            alertTitle = R.l10n.theEmailAdressIsBadlyFormated()
+                                            alertTitle = R.l10n.loginFail()
                                             alertMessage = errorMessage ?? ""
                                             showAlert = true
                                         }
                                     }
-                                }) {
-                                    Text(R.l10n.forgotPassword())
-                                        .font(.custom(R.file.poppinsRegularTtf.name, size: 13))
-                                        .padding()
-                                        .foregroundColor(.blue4F)
-                                        .fixedSize()
                                 }
-                                .frame(maxWidth: .infinity, alignment: .trailing)
-                            }
-                            
-                            CustomButton(title: R.l10n.signIn()) {
-                                AuthenService.shared.signInWithEmailPassword(email: email,
-                                                                             password: password) {  success, errorMessage in
-                                    if success {
-                                        isLoggedIn = true
-                                    } else {
-                                        alertTitle = R.l10n.loginFail()
-                                        alertMessage = errorMessage ?? ""
-                                        showAlert = true
+                                .padding(.top, 0)
+                                .navigationDestination(isPresented: $isLoggedIn) {
+                                    BaseCurrencyView().navigationBarHidden(true)
+                                }
+                                
+                                LoginWithGoogle()
+                                    .padding(.top, 24)
+                                
+                                HStack {
+                                    Text(R.l10n.donnotHaveAcount)
+                                        .font(.custom(R.file.poppinsRegularTtf.name, size: 12))
+                                        .foregroundColor(Color.greyC1)
+                                    NavigationLink(destination: RegisterView().navigationBarBackButtonHidden()) {
+                                        Text(R.l10n.signUp)
+                                            .font(.custom(R.file.poppinsRegularTtf.name, size: 12))
                                     }
                                 }
-                            }
-                            .padding(.top, 0)
-                            .navigationDestination(isPresented: $isLoggedIn) {
-                                BaseCurrencyView().navigationBarHidden(true)
-                            }
-                            
-                            LoginWithGoogle()
-                                .padding(.top, 24)
-                            
-                            HStack {
-                                Text(R.l10n.donnotHaveAcount)
-                                    .font(.custom(R.file.poppinsRegularTtf.name, size: 12))
-                                    .foregroundColor(Color.greyC1)
-                                NavigationLink(destination: RegisterView()) {
-                                    Text(R.l10n.signUp)
-                                        .font(.custom(R.file.poppinsRegularTtf.name, size: 12))
-                                }
+                                
+                                Spacer()
+                                    .frame(height: 60)
+                                
+                                ContinueAsGuest()
+                                
+                                Spacer()
                             }
                             
-                            Spacer()
-                                .frame(height: 60)
-                            
-                            ContinueAsGuest()
-                            
-                            Spacer()
                         }
-                        .padding(.top, 40)
-                        .frame(maxWidth: .infinity)
-                        .padding(.bottom, 0)
-                        .padding(.horizontal, 24)
-                        .background(Color.white)
-                        .cornerRadius(20)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 20)
-                                .stroke(Color.white, lineWidth: 1)
-                        )
+                        .scrollIndicators(.hidden)
                     }
-                    .scrollIndicators(.hidden)
+                    .padding(.top, 40)
+                    .frame(maxWidth: .infinity)
+                    .padding(.bottom, 0)
+                    .padding(.horizontal, 24)
+                    .background(Color.white)
+                    .cornerRadius(20)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 20)
+                            .stroke(Color.white, lineWidth: 1)
+                    )
                 }
             }
         }
