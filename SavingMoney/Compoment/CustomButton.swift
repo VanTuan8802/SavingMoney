@@ -25,7 +25,6 @@ struct CustomButton: View {
                 )
                 .cornerRadius(10)
         }
-        .padding(.horizontal, 24)
     }
 }
 
