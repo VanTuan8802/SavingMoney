@@ -88,7 +88,7 @@ struct RegisterView: View {
                                     .padding(.bottom,16)
                             
                                 
-                                CustomButton(title: R.l10n.signIn()) {
+                                CustomButton(title: R.l10n.signUp()) {
                                     AuthenService.shared.signUpWithEmailPassword(email: email,
                                                                                  password: password,
                                                                                  confirmPassword: confirmPassword) {  success, errorMessage in
@@ -134,7 +134,22 @@ struct RegisterView: View {
                     )
                 }
             }
-        }
+        }.overlay(
+            Group {
+                if showAlert {
+                    CustomAlert(
+                        isPresented: $showAlert,
+                        title: alertTitle,
+                        message: alertMessage,
+                        cancelTitle: "Cancel",
+                        okTitle: "OK",
+                        okAction: {
+                            print("OK tapped")
+                        }
+                    )
+                }
+            }
+        )
     }
 }
 

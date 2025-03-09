@@ -17,7 +17,9 @@ class AuthenService {
     func signInWithEmailPassword(email: String,
                                  password: String,
                                  completion: @escaping (Bool, String?) -> Void) {
-        Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
+        Auth.auth().signIn(withEmail: email,
+                           password: password) { authResult, error in
+            print(error)
             if let error = error {
                 let errorCode = (error as NSError).code
                 

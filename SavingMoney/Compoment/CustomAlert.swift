@@ -19,36 +19,47 @@ struct CustomAlert: View {
         VStack(spacing: 20) {
             if let title = title {
                 Text(title)
-                    .font(.headline)
+                    .font(.custom(R.file.poppinsMediumTtf.name, size: 20))
             }
-            Text(message)
-                .font(.body)
-                .multilineTextAlignment(.center)
             
-            HStack {
+            Text(message)
+                .multilineTextAlignment(.center)
+                .font(.custom(R.file.poppinsMediumTtf.name, size: 14))
+            
+            HStack(spacing: 16) {
                 Button(action: {
                     isPresented = false
                 }) {
                     Text(cancelTitle)
-                        .foregroundColor(.red)
+                        .foregroundColor(.black)
+                        .font(.custom(R.file.poppinsMediumTtf.name, size: 13))
                 }
                 .padding()
+                .frame(maxWidth: .infinity)
+                .background(Color.greyF6)
+                .cornerRadius(16)
                 
                 Button(action: {
                     isPresented = false
                     okAction?()
                 }) {
                     Text(okTitle)
-                        .foregroundColor(.blue)
+                        .foregroundColor(.white)
+                        .font(.custom(R.file.poppinsMediumTtf.name, size: 13))
                 }
                 .padding()
+                .frame(maxWidth: .infinity)
+                .background(LinearGradient(colors: [Color.blue4F,Color.purple8B],
+                                           startPoint: .leading,
+                                           endPoint: .trailing))
+                .cornerRadius(16)
+                
             }
         }
         .padding()
-        .frame(maxWidth: 300) // Set a maximum width for the alert
+        .frame(maxWidth: 300)
         .background(Color.white)
-        .cornerRadius(10)
-        .shadow(radius: 20)
+        .cornerRadius(16)
         .padding()
     }
 }

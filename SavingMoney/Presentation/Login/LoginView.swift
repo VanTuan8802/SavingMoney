@@ -157,7 +157,22 @@ struct LoginView: View {
                     )
                 }
             }
-        }
+        }.overlay(
+            Group {
+                if showAlert {
+                    CustomAlert(
+                        isPresented: $showAlert,
+                        title: alertTitle,
+                        message: alertMessage,
+                        cancelTitle: "Cancel",
+                        okTitle: "OK",
+                        okAction: {
+                            print("OK tapped")
+                        }
+                    )
+                }
+            }
+        )
     }
 }
 
