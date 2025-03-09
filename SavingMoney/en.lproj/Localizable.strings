@@ -48,3 +48,4 @@ openEmailToConfirmLink = "Open email to confirm link";
 openEmail = "Open Email";
 alreadyHaveAnAccount = "Already have an account?";
 userNameOrMail = "Username or Email";
+baseCurrency = "Base currency";

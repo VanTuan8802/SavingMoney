@@ -58,7 +58,7 @@ struct _R {
     }
 
 
-    /// This `_R.string.localizable` struct is generated, and contains static references to 41 localization keys.
+    /// This `_R.string.localizable` struct is generated, and contains static references to 42 localization keys.
     struct localizable {
       let source: RswiftResources.StringResource.Source
 
@@ -75,6 +75,13 @@ struct _R {
       ///
       /// Locales: en
       var alreadyHaveAnAccount: RswiftResources.StringResource { .init(key: "alreadyHaveAnAccount", tableName: "Localizable", source: source, developmentValue: "Already have an account?", comment: nil) }
+
+      /// en translation: Base currency
+      ///
+      /// Key: baseCurrency
+      ///
+      /// Locales: en
+      var baseCurrency: RswiftResources.StringResource { .init(key: "baseCurrency", tableName: "Localizable", source: source, developmentValue: "Base currency", comment: nil) }
 
       /// en translation: Camera
       ///
@@ -387,6 +394,9 @@ struct _R {
   struct image {
     let bundle: Foundation.Bundle
 
+    /// Image `Splash`.
+    var splash: RswiftResources.ImageResource { .init(name: "Splash", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
     /// Image `buttonBack`.
     var buttonBack: RswiftResources.ImageResource { .init(name: "buttonBack", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
@@ -437,9 +447,6 @@ struct _R {
 
     /// Image `spanish`.
     var spanish: RswiftResources.ImageResource { .init(name: "spanish", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
-
-    /// Image `splash`.
-    var splash: RswiftResources.ImageResource { .init(name: "splash", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
   }
 
   /// This `_R.font` struct is generated, and contains static references to 4 fonts.
@@ -468,12 +475,15 @@ struct _R {
     }
   }
 
-  /// This `_R.file` struct is generated, and contains static references to 6 resource files.
+  /// This `_R.file` struct is generated, and contains static references to 7 resource files.
   struct file {
     let bundle: Foundation.Bundle
 
     /// Resource file `Animation.json`.
     var animationJson: RswiftResources.FileResource { .init(name: "Animation", pathExtension: "json", bundle: bundle, locale: LocaleReference.none) }
+
+    /// Resource file `Currenncy.json`.
+    var currenncyJson: RswiftResources.FileResource { .init(name: "Currenncy", pathExtension: "json", bundle: bundle, locale: LocaleReference.none) }
 
     /// Resource file `GoogleService-Info.plist`.
     var googleServiceInfoPlist: RswiftResources.FileResource { .init(name: "GoogleService-Info", pathExtension: "plist", bundle: bundle, locale: LocaleReference.none) }

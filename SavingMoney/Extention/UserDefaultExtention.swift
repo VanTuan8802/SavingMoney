@@ -51,5 +51,26 @@ class UserDefaultsData {
             data.set(newValue, forKey: Datakey.intro.rawValue)
         }
     }
-
+    
+    var currency: CurrencyModel {
+        get {
+            if let savedData = data.data(forKey: Datakey.currency.rawValue),
+               let decodedCurrency = try? JSONDecoder().decode(CurrencyModel.self, from: savedData) {
+                return decodedCurrency
+            }
+            return CurrencyModel(id:152,
+                                 flag: "https://144-202-123-28.nip.io/images/unitedstates.png",
+                                 code: "USD",
+                                 country: "United States",
+                                 symbol: "$")
+        }
+        
+        set {
+            if let encodedData = try? JSONEncoder().encode(newValue) {
+                data.set(encodedData,
+                         forKey: Datakey.currency.rawValue)
+            }
+        }
+    }
+    
 }

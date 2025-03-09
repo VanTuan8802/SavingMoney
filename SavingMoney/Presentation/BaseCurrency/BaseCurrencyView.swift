@@ -6,10 +6,58 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct BaseCurrencyView: View {
+    @State private var currencyModels: [CurrencyModel] = []
+    @State private var currencySelected: CurrencyModel = UserDefaultsData.shared.currency
+    @State private var searchText: String = ""
+
+    init() {
+        if let currencies: [CurrencyModel] = readJSON(fileName: R.file.currenncyJson.name,
+                                                      type: [CurrencyModel].self) {
+            _currencyModels = State(initialValue: currencies)
+        }
+    }
+    
+    var filteredCurrencies: [CurrencyModel] {
+        if searchText.isEmpty {
+            return currencyModels
+        } else {
+            return currencyModels.filter {
+                $0.country.localizedCaseInsensitiveContains(searchText) ||
+                $0.code.localizedCaseInsensitiveContains(searchText)
+            }
+        }
+    }
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            VStack {
+                Text(R.l10n.baseCurrency)
+                    .font(.custom(R.file.poppinsSemiBoldTtf.name, size: 20))
+                    .foregroundColor(Color.black)
+                    .padding(.top, 10)
+                
+                SearchBar(text: $searchText)
+                    .padding(.horizontal)
+
+                List(filteredCurrencies, id: \.id) { currency in
+                    ZStack {
+                        CurrencyItemView(currencyModel: currency,
+                                         currencySelected: $currencySelected)
+                    }
+                    .listRowSeparator(.hidden)
+                    .onTapGesture {
+                        currencySelected = currency
+                        UserDefaultsData.shared.currency = currency
+                    }
+                }
+                .listStyle(.plain)
+                .scrollContentBackground(.hidden)
+                .background(Color.white)
+            }
+        }
     }
 }
 
