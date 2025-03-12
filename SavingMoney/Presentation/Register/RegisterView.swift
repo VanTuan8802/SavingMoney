@@ -1,5 +1,5 @@
 //
-//  LoginView.swift
+//  RegisterView.swift
 //  SavingMoney
 //
 //  Created by Tuấn Nguyễn on 6/3/25.
@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct LoginView: View {
-    @State var showSignUpView = false
+struct RegisterView: View {
+    @Environment(\.presentationMode) var presentationMode
     
     @State private var showAlert: Bool = false
     @State private var alertMessage: String = ""
@@ -16,8 +16,10 @@ struct LoginView: View {
     
     @State private var email: String = ""
     @State private var password: String = ""
+    @State private var confirmPassword: String = ""
     @FocusState private var emailFieldIsFocused: Bool
     @FocusState private var passwordFieldIsFocused: Bool
+    @FocusState private var confirmPasswordFieldIsFocused: Bool
     
     @State private var isLoggedIn: Bool = false
     
@@ -26,26 +28,17 @@ struct LoginView: View {
             ZStack(alignment: .top) {
                 VStack(spacing: 0) {
                     ZStack {
-                        Image(R.image.login.name)
+                        Image(R.image.register.name)
                             .resizable()
                             .frame(height: 320)
                             .ignoresSafeArea(edges: .top)
                         
-                        VStack(spacing: 8) {
-                            Text(R.l10n.helloWelcomeTo)
-                                .font(.custom(R.file.poppinsMediumTtf.name, size: 16))
+                            Text(R.l10n.createAnAccount)
+                                .font(.custom(R.file.poppinsSemiBoldTtf.name, size: 24))
                                 .foregroundColor(.white)
                                 .frame(maxWidth: .infinity, alignment: .leading)
                                 .padding(.leading, 24)
-                            
-                            Text(R.l10n.moneyManager)
-                                .font(.custom(R.file.poppinsMediumTtf.name, size: 24))
-                                .foregroundColor(.white)
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .padding(.leading, 24)
-                        }
-                        .padding(.leading, 24)
-                        .padding(.bottom, 40)
+                                .padding(.bottom,100)
                     }
                     .frame(height: 320)
                     .padding(.top,0)
@@ -56,12 +49,17 @@ struct LoginView: View {
                     VStack {
                         ScrollView {
                             VStack {
-                                Text(R.l10n.welcomeBack)
-                                    .font(.custom(R.file.poppinsMediumTtf.name, size: 12))
-                                    .foregroundStyle(.black1B)
-                                    .frame(maxWidth: .infinity, alignment: .leading)
-                                    .padding(.leading, 8)
-                                
+                                HStack {
+                                    Text(R.l10n.alreadyHaveAnAccount)
+                                        .font(.custom(R.file.poppinsRegularTtf.name, size: 12))
+                                    Button(action: {
+                                        self.presentationMode.wrappedValue.dismiss()
+                                    }, label: {
+                                        Text(R.l10n.signIn)
+                                            .font(.custom(R.file.poppinsRegularTtf.name, size: 12))
+                                    })
+                                }.frame(maxWidth: .infinity,alignment: .leading)
+                  
                                 TextField(R.l10n.emailAddress(), text: $email)
                                     .focused($emailFieldIsFocused)
                                     .padding()
@@ -69,7 +67,6 @@ struct LoginView: View {
                                     .cornerRadius(10)
                                     .keyboardType(.emailAddress)
                                     .autocapitalization(.none)
-                                    .disableAutocorrection(true)
                                     .padding(.top, 16)
                                 
                                 SecureField(R.l10n.password(), text: $password)
@@ -78,35 +75,23 @@ struct LoginView: View {
                                     .background(Color.greyF6)
                                     .cornerRadius(10)
                                     .autocapitalization(.none)
-                                    .disableAutocorrection(true)
                                     .padding(.top, 16)
                                 
-                                HStack {
-                                    Button(action: {
-                                        AuthenService.shared.sendPasswordReset(email: email) { success, errorMessage in
-                                            if success {
-                                                alertTitle = R.l10n.openEmail()
-                                                alertMessage = R.l10n.openEmailToConfirmLink()
-                                                showAlert = true
-                                            } else {
-                                                alertTitle = R.l10n.theEmailAdressIsBadlyFormated()
-                                                alertMessage = errorMessage ?? ""
-                                                showAlert = true
-                                            }
-                                        }
-                                    }) {
-                                        Text(R.l10n.forgotPassword())
-                                            .font(.custom(R.file.poppinsRegularTtf.name, size: 13))
-                                            .padding()
-                                            .foregroundColor(.blue4F)
-                                            .fixedSize()
-                                    }
-                                    .frame(maxWidth: .infinity, alignment: .trailing)
-                                }
+                                SecureField(R.l10n.password(), text: $confirmPassword)
+                                    .focused($passwordFieldIsFocused)
+                                    .padding()
+                                    .background(Color.greyF6)
+                                    .cornerRadius(10)
+                                    .autocapitalization(.none)
+                                    .disableAutocorrection(true)
+                                    .padding(.top, 16)
+                                    .padding(.bottom,16)
+                            
                                 
-                                CustomButton(title: R.l10n.signIn()) {
-                                    AuthenService.shared.signInWithEmailPassword(email: email,
-                                                                                 password: password) {  success, errorMessage in
+                                CustomButton(title: R.l10n.signUp()) {
+                                    AuthenService.shared.signUpWithEmailPassword(email: email,
+                                                                                 password: password,
+                                                                                 confirmPassword: confirmPassword) {  success, errorMessage in
                                         if success {
                                             isLoggedIn = true
                                             UserDefaultsData.shared.nextView = .currency
@@ -125,16 +110,6 @@ struct LoginView: View {
                                 LoginWithGoogle()
                                     .padding(.top, 24)
                                 
-                                HStack {
-                                    Text(R.l10n.donnotHaveAcount)
-                                        .font(.custom(R.file.poppinsRegularTtf.name, size: 12))
-                                        .foregroundColor(Color.greyC1)
-                                    NavigationLink(destination: RegisterView().navigationBarBackButtonHidden()) {
-                                        Text(R.l10n.signUp)
-                                            .font(.custom(R.file.poppinsRegularTtf.name, size: 12))
-                                    }
-                                }
-                                
                                 Spacer()
                                     .frame(height: 60)
                                 
@@ -142,9 +117,11 @@ struct LoginView: View {
                                 
                                 Spacer()
                             }
-                            
                         }
                         .scrollIndicators(.hidden)
+                        .frame(maxWidth: .infinity)
+                        .padding(.top, 0)
+                        .clipped()
                     }
                     .padding(.top, 40)
                     .frame(maxWidth: .infinity)
@@ -178,5 +155,5 @@ struct LoginView: View {
 }
 
 #Preview {
-    LoginView()
+    RegisterView()
 }

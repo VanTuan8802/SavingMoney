@@ -13,6 +13,7 @@ struct LanguageView: View {
     let languages: [LanguageEnum] = [.en, .es, .fr, .hi, .pt]
     
     @State private var selectedLanguage: LanguageEnum = UserDefaultsData.shared.language
+    
     @State private var navigateToIntro = false
     
     init(languegeIntro: Bool) {
@@ -66,9 +67,8 @@ struct LanguageView: View {
     private var doneButton: some View {
         Button(action: {
             UserDefaultsData.shared.language = selectedLanguage
-            if languegeIntro {
-                navigateToIntro = true
-            }
+            navigateToIntro = true
+            UserDefaultsData.shared.nextView = .intro
         }) {
             Image(R.image.buttonDone.name, bundle: nil)
                 .resizable()

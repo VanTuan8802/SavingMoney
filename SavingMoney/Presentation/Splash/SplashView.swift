@@ -10,6 +10,11 @@ import Lottie
 
 struct SplashView: View {
     @State private var navigateToLanguageView = false
+    @State private var navigateToIntro = false
+    @State private var navigateToPermission = false
+    @State private var navigateToLogin = false
+    @State private var navigateToCurrency = false
+    @State private var navigateToHome = false
     
     var body: some View {
         NavigationStack {
@@ -36,8 +41,6 @@ struct SplashView: View {
                         .playing()
                         .frame(width: 80, height: 80)
                     
-                    
-                    
                     Text(R.l10n.thisActionCanContainAds)
                         .font(.custom(R.file.poppinsRegularTtf.name, size: 14))
                         .foregroundColor(.white)
@@ -50,13 +53,39 @@ struct SplashView: View {
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .onAppear {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-                    navigateToLanguageView = true
+                DispatchQueue.main.asyncAfter(deadline: .now()) {
+                    switch UserDefaultsData.shared.nextView {
+                    case .language:
+                        navigateToLanguageView = true
+                    case .intro:
+                        navigateToIntro = true
+                    case .permission:
+                        navigateToPermission = true
+                    case .login:
+                        navigateToLogin = true
+                    case .currency:
+                        navigateToCurrency = true
+                    case .home:
+                        navigateToHome = true
+                    }
                 }
             }.navigationDestination(isPresented: $navigateToLanguageView) {
                 LanguageView(languegeIntro: true).navigationBarHidden(true)
             }
-            
+            .navigationDestination(isPresented: $navigateToIntro) {
+                IntroView().navigationBarHidden(true)
+            }.navigationDestination(isPresented: $navigateToPermission) {
+                PermissionView().navigationBarHidden(true)
+            }
+            .navigationDestination(isPresented: $navigateToLogin) {
+                LoginView().navigationBarHidden(true)
+            }
+            .navigationDestination(isPresented: $navigateToCurrency) {
+                BaseCurrencyView().navigationBarHidden(true)
+            }
+            .navigationDestination(isPresented: $navigateToHome) {
+                HomeView().navigationBarHidden(true)
+            }
         }
     }
 }

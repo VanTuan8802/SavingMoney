@@ -13,10 +13,13 @@ class UserDefaultsData {
     private let data = UserDefaults.standard
     
     enum Datakey: String {
-        case firstLanguage
-        case intro
-        case currency
         case language
+        case openedLanguage
+        case openedIntro
+        case openedLogin
+        case currency
+        case openedCurrency
+        case nextView
     }
     
     var language: LanguageEnum {
@@ -30,26 +33,76 @@ class UserDefaultsData {
         }
         set {
             data.set(newValue.rawValue, forKey: Datakey.language.rawValue)
-            data.synchronize()
         }
     }
     
     var showFirstLanguage: Bool {
         get {
-            return data.bool(forKey: Datakey.firstLanguage.rawValue)
+            return data.bool(forKey: Datakey.openedLanguage.rawValue)
         }
         set {
-            data.set(newValue, forKey: Datakey.firstLanguage.rawValue)
+            data.set(newValue, forKey: Datakey.openedLanguage.rawValue)
         }
     }
     
     var showIntro: Bool {
         get {
-            return data.bool(forKey: Datakey.intro.rawValue)
+            return data.bool(forKey: Datakey.openedIntro.rawValue)
         }
         set {
-            data.set(newValue, forKey: Datakey.intro.rawValue)
+            data.set(newValue, forKey: Datakey.openedIntro.rawValue)
         }
     }
-
+    
+    var showLogin: Bool {
+        get {
+            return data.bool(forKey: Datakey.openedLogin.rawValue)
+        }
+        set {
+            data.set(newValue, forKey: Datakey.openedLogin.rawValue)
+        }
+    }
+    
+    var currency: CurrencyModel {
+        get {
+            if let savedData = data.data(forKey: Datakey.currency.rawValue),
+               let decodedCurrency = try? JSONDecoder().decode(CurrencyModel.self, from: savedData) {
+                return decodedCurrency
+            }
+            return CurrencyModel(id:152,
+                                 flag: "https://144-202-123-28.nip.io/images/unitedstates.png",
+                                 code: "USD",
+                                 country: "United States",
+                                 symbol: "$")
+        }
+        
+        set {
+            if let encodedData = try? JSONEncoder().encode(newValue) {
+                data.set(encodedData,
+                         forKey: Datakey.currency.rawValue)
+            }
+        }
+    }
+    
+    var openCurrency: Bool {
+        get {
+            return data.bool(forKey: Datakey.openedCurrency.rawValue)
+        }
+        set {
+            data.set(newValue, forKey: Datakey.openedCurrency.rawValue)
+        }
+    }
+    
+    var nextView: NavigationEnum {
+        get {
+            if let nextViewRawValue = data.string(forKey: Datakey.nextView.rawValue),
+               let nextView = NavigationEnum(rawValue: nextViewRawValue) {
+                return nextView
+            }
+            return .language
+        }
+        set {
+            data.set(newValue.rawValue, forKey: Datakey.nextView.rawValue)
+        }
+    }
 }

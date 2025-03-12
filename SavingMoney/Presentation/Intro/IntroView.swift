@@ -14,6 +14,7 @@ struct IntroView: View {
                                .intro4]
     
     @State private var currentPage = 0
+    
     @State private var navigateToPermission = false
 
     var body: some View {
@@ -58,6 +59,7 @@ struct IntroView: View {
                         currentPage += 1
                     } else {
                         navigateToPermission = true
+                        UserDefaultsData.shared.nextView = .permission
                     }
                 }) {
                     Text(R.l10n.next())
