@@ -109,6 +109,7 @@ struct LoginView: View {
                                                                                  password: password) {  success, errorMessage in
                                         if success {
                                             isLoggedIn = true
+                                            UserDefaultsData.shared.nextView = .currency
                                         } else {
                                             alertTitle = R.l10n.loginFail()
                                             alertMessage = errorMessage ?? ""

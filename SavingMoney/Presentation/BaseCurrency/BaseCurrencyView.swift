@@ -12,6 +12,8 @@ struct BaseCurrencyView: View {
     @State private var currencyModels: [CurrencyModel] = []
     @State private var currencySelected: CurrencyModel = UserDefaultsData.shared.currency
     @State private var searchText: String = ""
+    
+    @State private var navigateToHome = false
 
     init() {
         if let currencies: [CurrencyModel] = readJSON(fileName: R.file.currenncyJson.name,
@@ -34,11 +36,26 @@ struct BaseCurrencyView: View {
     var body: some View {
         NavigationView {
             VStack {
-                Text(R.l10n.baseCurrency)
-                    .font(.custom(R.file.poppinsSemiBoldTtf.name, size: 20))
-                    .foregroundColor(Color.black)
-                    .padding(.top, 10)
-                
+                HStack {
+                    Text(R.l10n.baseCurrency)
+                        .font(.custom(R.file.poppinsSemiBoldTtf.name, size: 20))
+                        .foregroundColor(Color.black)
+                        .padding(.top, 10)
+                        .frame(maxWidth: .infinity, alignment: .center) 
+
+                    Button(action: {
+                        UserDefaultsData.shared.currency = currencySelected
+                        navigateToHome = true
+                        UserDefaultsData.shared.nextView = .home
+                    }) {
+                        Image(R.image.buttonDone.name, bundle: nil)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 32, height: 32)
+                    }
+                }
+                .padding(.horizontal, 16)
+
                 SearchBar(text: $searchText)
                     .padding(.horizontal)
 
@@ -56,6 +73,8 @@ struct BaseCurrencyView: View {
                 .listStyle(.plain)
                 .scrollContentBackground(.hidden)
                 .background(Color.white)
+            }.navigationDestination(isPresented: $navigateToHome) {
+                HomeView().navigationBarHidden(true)
             }
         }
     }

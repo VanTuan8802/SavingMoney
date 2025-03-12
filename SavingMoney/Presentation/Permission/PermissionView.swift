@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PermissionView: View {
     
-    @State private var navigateToIntro = false
+    @State private var navigateToLogin = false
     
     var body: some View {
         NavigationStack {
@@ -68,10 +68,11 @@ struct PermissionView: View {
                 Spacer()
                 
                 CustomButton(title: R.l10n.continue(), action: {
-                    navigateToIntro = true
+                    navigateToLogin = true
+                    UserDefaultsData.shared.nextView = .login
                 }).padding(.bottom, 16)
                     .padding(.horizontal,24)
-                    .navigationDestination(isPresented: $navigateToIntro) {
+                    .navigationDestination(isPresented: $navigateToLogin) {
                         LoginView().navigationBarHidden(true)
                     }
             }
