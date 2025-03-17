@@ -58,7 +58,7 @@ struct _R {
     }
 
 
-    /// This `_R.string.localizable` struct is generated, and contains static references to 42 localization keys.
+    /// This `_R.string.localizable` struct is generated, and contains static references to 46 localization keys.
     struct localizable {
       let source: RswiftResources.StringResource.Source
 
@@ -307,6 +307,34 @@ struct _R {
       /// Locales: en
       var photo: RswiftResources.StringResource { .init(key: "photo", tableName: "Localizable", source: source, developmentValue: "Photo", comment: nil) }
 
+      /// en translation: Save
+      ///
+      /// Key: save
+      ///
+      /// Locales: en
+      var save: RswiftResources.StringResource { .init(key: "save", tableName: "Localizable", source: source, developmentValue: "Save", comment: nil) }
+
+      /// en translation: Search
+      ///
+      /// Key: search
+      ///
+      /// Locales: en
+      var search: RswiftResources.StringResource { .init(key: "search", tableName: "Localizable", source: source, developmentValue: "Search", comment: nil) }
+
+      /// en translation: Set your Budget
+      ///
+      /// Key: setYourBudget
+      ///
+      /// Locales: en
+      var setYourBudget: RswiftResources.StringResource { .init(key: "setYourBudget", tableName: "Localizable", source: source, developmentValue: "Set your Budget", comment: nil) }
+
+      /// en translation: Please enter your budget, Money manager will help you navigate your money.
+      ///
+      /// Key: setYourBudgetMessage
+      ///
+      /// Locales: en
+      var setYourBudgetMessage: RswiftResources.StringResource { .init(key: "setYourBudgetMessage", tableName: "Localizable", source: source, developmentValue: "Please enter your budget, Money manager will help you navigate your money.", comment: nil) }
+
       /// en translation: Sign In
       ///
       /// Key: signIn
@@ -390,12 +418,15 @@ struct _R {
     var whiteE6: RswiftResources.ColorResource { .init(name: "whiteE6", path: [], bundle: bundle) }
   }
 
-  /// This `_R.image` struct is generated, and contains static references to 18 images.
+  /// This `_R.image` struct is generated, and contains static references to 19 images.
   struct image {
     let bundle: Foundation.Bundle
 
     /// Image `Splash`.
     var splash: RswiftResources.ImageResource { .init(name: "Splash", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `budget`.
+    var budget: RswiftResources.ImageResource { .init(name: "budget", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
     /// Image `buttonBack`.
     var buttonBack: RswiftResources.ImageResource { .init(name: "buttonBack", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }

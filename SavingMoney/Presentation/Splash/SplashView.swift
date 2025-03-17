@@ -14,6 +14,7 @@ struct SplashView: View {
     @State private var navigateToPermission = false
     @State private var navigateToLogin = false
     @State private var navigateToCurrency = false
+    @State private var navigateToBudget = false
     @State private var navigateToHome = false
     
     var body: some View {
@@ -65,6 +66,8 @@ struct SplashView: View {
                         navigateToLogin = true
                     case .currency:
                         navigateToCurrency = true
+                    case .budget:
+                        navigateToBudget = true
                     case .home:
                         navigateToHome = true
                     }
@@ -81,6 +84,9 @@ struct SplashView: View {
                 LoginView().navigationBarHidden(true)
             }
             .navigationDestination(isPresented: $navigateToCurrency) {
+                BaseCurrencyView().navigationBarHidden(true)
+            }
+            .navigationDestination(isPresented: $navigateToBudget) {
                 BaseCurrencyView().navigationBarHidden(true)
             }
             .navigationDestination(isPresented: $navigateToHome) {

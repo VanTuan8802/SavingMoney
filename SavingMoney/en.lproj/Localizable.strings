@@ -49,3 +49,7 @@ openEmail = "Open Email";
 alreadyHaveAnAccount = "Already have an account?";
 userNameOrMail = "Username or Email";
 baseCurrency = "Base currency";
+search = "Search";
+setYourBudget = "Set your Budget";
+setYourBudgetMessage = "Please enter your budget, Money manager will help you navigate your money.";
+save = "Save";

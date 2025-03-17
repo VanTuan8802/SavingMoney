@@ -11,5 +11,6 @@ enum NavigationEnum:String, Encodable {
     case permission
     case login
     case currency
+    case budget
     case home
 }

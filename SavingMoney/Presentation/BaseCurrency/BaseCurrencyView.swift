@@ -46,7 +46,7 @@ struct BaseCurrencyView: View {
                     Button(action: {
                         UserDefaultsData.shared.currency = currencySelected
                         navigateToHome = true
-                        UserDefaultsData.shared.nextView = .home
+                        UserDefaultsData.shared.nextView = .budget
                     }) {
                         Image(R.image.buttonDone.name, bundle: nil)
                             .resizable()
