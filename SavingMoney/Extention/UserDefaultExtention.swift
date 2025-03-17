@@ -20,6 +20,7 @@ class UserDefaultsData {
         case currency
         case openedCurrency
         case nextView
+        case budget
     }
     
     var language: LanguageEnum {
@@ -103,6 +104,15 @@ class UserDefaultsData {
         }
         set {
             data.set(newValue.rawValue, forKey: Datakey.nextView.rawValue)
+        }
+    }
+    
+    var budgetValue: Double {
+        get {
+            return data.double(forKey: Datakey.budget.rawValue)
+        }
+        set {
+            data.set(newValue, forKey: Datakey.budget.rawValue)
         }
     }
 }
