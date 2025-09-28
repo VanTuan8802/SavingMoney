@@ -9,7 +9,7 @@ import Foundation
 
 extension _R {
     var l10n: string.localizable {
-        R.string.localizable(preferredLanguages: [UserDefaultsData.shared.language.rawValue])
+        R.string.localizable(preferredLanguages: [LanguageStorage.shared.language.rawValue])
     }
 }
 

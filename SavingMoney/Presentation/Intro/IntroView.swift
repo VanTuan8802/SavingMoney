@@ -8,71 +8,112 @@
 import SwiftUI
 
 struct IntroView: View {
-    let intros: [IntroEnum] = [.intro1,
-                               .intro2,
-                               .intro3,
-                               .intro4]
     
-    @State private var currentPage = 0
+    @StateObject var viewModel: IntroViewModel
+    private var onCompleted: (() -> Void)?
     
-    private var onCompleted: (() -> Void)
-    
-    init(onCompleted: @escaping (() -> Void)) {
+    init(onCompleted: (() -> Void)?) {
+        _viewModel = StateObject(wrappedValue: IntroViewModel())
         self.onCompleted = onCompleted
     }
-
+    
     var body: some View {
-        VStack(spacing: 16) {
-            Image(intros[currentPage].getImageIntro)
-                .resizable()
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .ignoresSafeArea(edges: .top)
-            
-            TabView(selection: $currentPage) {
-                ForEach(Array(intros.enumerated()), id: \.offset) { index, intro in
-                    VStack {
-                        Text(intro.getTitle)
-                            .font(.custom(R.file.poppinsMediumTtf.name, size: 20))
-                            .fontWeight(.semibold)
-                            .foregroundColor(Color.color4F80FC)
-                            .multilineTextAlignment(.center)
-
-                        Text(intro.getContent)
-                            .font(.custom(R.file.poppinsMediumTtf.name, size: 14))
-                            .padding(.horizontal, 16)
-                            .foregroundColor(Color.color18181B)
-                            .multilineTextAlignment(.center)
-                    }
-                    .tag(index)
+        TabView(selection: $viewModel.introSelection) {
+            ForEach(IntroEnum.allCases, id: \.self) { entity in
+                VStack {
+                    Image(entity.getImageIntro)
+                        .resizable()
+                        .scaledToFit()
+                    
+                    bottomView(entity: entity)
+                    
+                    Spacer()
                 }
+                .background(Color.white)
+                .tag(entity)
+                .ignoresSafeArea()
             }
-            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
-            .padding(.top, 16)
-            .frame(height:80)
+        }
+        .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+        .ignoresSafeArea()
+    }
+    
+    @MainActor @ViewBuilder
+    private func bottomView(entity: IntroEnum) -> some View {
+        VStack(spacing: 12) {
+            titleView(entity: entity)
             
-            Button(action: {
-                if currentPage < intros.count - 1 {
-                    currentPage += 1
-                } else {
-                    onCompleted()
+            actionView
+            
+            indicator
+        }
+        .padding(.bottom, 13)
+        .background(Color.white)
+    }
+    
+    @MainActor @ViewBuilder
+    private func titleView(entity: IntroEnum) -> some View {
+        VStack(spacing: 8) {
+            Text(entity.getTitle)
+                .font(.medium20)
+                .fontWeight(.semibold)
+                .foregroundColor(Color.color4F80FC)
+                .multilineTextAlignment(.center)
+            
+            Text(entity.getContent)
+                .font(.medium14)
+                .padding(.horizontal, 16)
+                .foregroundColor(Color.color18181B)
+                .multilineTextAlignment(.center)
+        }
+        .padding(.top, 16)
+        .padding(.horizontal, 20)
+    }
+    
+    @MainActor @ViewBuilder
+    private var actionView: some View {
+        Button(
+            action: {
+                switch viewModel.introSelection {
+                case .intro1: viewModel.introSelection = .intro2
+                case .intro2: viewModel.introSelection = .intro3
+                case .intro3: viewModel.introSelection = .intro4
+                case .intro4: onCompleted?()
                 }
-            }) {
-                Text(R.l10n.next())
-                    .font(.custom(R.file.poppinsRegularTtf.name, size: 16))
+            },
+            label: {
+                Text(viewModel.introSelection == .intro4 ? R.l10n.start() : R.l10n.next())
+                    .font(.regular16)
                     .frame(maxWidth: .infinity)
                     .foregroundColor(Color.color8B8FEB)
-                    .cornerRadius(10)
-            }
-            .padding(.top, 8)
-            
-            HStack(spacing: 8) {
-                ForEach(intros.indices, id: \.self) { index in
+            })
+        .padding(.horizontal, 16)
+    }
+    
+    @MainActor @ViewBuilder
+    private var indicator: some View {
+        HStack(spacing: 8) {
+            ForEach(IntroEnum.allCases, id: \.self) { introSelection in
+                if introSelection == viewModel.introSelection {
+                    LinearGradient(
+                        colors: [Color.color4F80FC, Color.color8B8FEB],
+                        startPoint: .leading,
+                        endPoint: .trailing
+                    )
+                    .frame(width: 20, height: 8)
+                    .clipShape(Capsule())
+                } else {
                     Circle()
-                        .fill(index == currentPage ? Color.blue : Color.gray)
-                        .frame(width: 10, height: 10)
+                        .fill(Color.colorC5CFF9)
+                        .frame(width: 8, height: 8)
                 }
             }
-
         }
     }
+}
+
+#Preview {
+    IntroView(onCompleted: {
+        
+    })
 }

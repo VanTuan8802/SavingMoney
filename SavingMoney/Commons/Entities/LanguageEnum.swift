@@ -7,11 +7,11 @@
 
 import Foundation
 
-enum LanguageEnum: String, Encodable {
+enum LanguageEnum: String, Encodable, CaseIterable {
     case en = "en"
+    case es = "es"
     case fr = "fr"
     case hi = "hi"
-    case es = "es"
     case pt = "pt"
     
     var getName: String {

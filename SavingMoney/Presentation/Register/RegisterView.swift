@@ -6,135 +6,157 @@
 //
 
 import SwiftUI
+import Factory
 
 struct RegisterView: View {
-    @Environment(\.presentationMode) var presentationMode
+    @StateObject private var viewModel: RegisterViewModel
+    @InjectedObject(\.app) internal var app: AppManager
     
-    @State private var showAlert: Bool = false
-    @State private var alertMessage: String = ""
-    @State private var alertTitle: String = ""
+    private var onCompleted: (() -> Void)?
     
-    @State private var email: String = ""
-    @State private var password: String = ""
-    @State private var confirmPassword: String = ""
-    @FocusState private var emailFieldIsFocused: Bool
-    @FocusState private var passwordFieldIsFocused: Bool
-    @FocusState private var confirmPasswordFieldIsFocused: Bool
+    @FocusState private var isEmailFocused: Bool
+    @FocusState private var isPasswordFocused: Bool
+    @FocusState private var isConfirmPasswordFocused: Bool
     
-    @State private var isLoggedIn: Bool = false
+    init(onCompleted: (() -> Void)? = nil) {
+        _viewModel = StateObject(wrappedValue: RegisterViewModel())
+        self.onCompleted = onCompleted
+    }
     
     var body: some View {
-        NavigationStack {
-            ZStack(alignment: .top) {
-                VStack(spacing: 0) {
-                    ZStack {
-                        Image(R.image.register.name)
-                            .resizable()
-                            .frame(height: 320)
-                            .ignoresSafeArea(edges: .top)
-                        
-                            Text(R.l10n.createAnAccount)
-                                .font(.custom(R.file.poppinsSemiBoldTtf.name, size: 24))
-                                .foregroundColor(.white)
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .padding(.leading, 24)
-                                .padding(.bottom,100)
-                    }
-                    .frame(height: 320)
-                    .padding(.top,0)
-                }
-                
-                VStack {
-                    Spacer().frame(height: 200)
-                    VStack {
-                        ScrollView {
-                            VStack {
-                                HStack {
-                                    Text(R.l10n.alreadyHaveAnAccount)
-                                        .font(.custom(R.file.poppinsRegularTtf.name, size: 12))
-                                    Button(action: {
-                                        self.presentationMode.wrappedValue.dismiss()
-                                    }, label: {
-                                        Text(R.l10n.signIn)
-                                            .font(.custom(R.file.poppinsRegularTtf.name, size: 12))
-                                    })
-                                }.frame(maxWidth: .infinity,alignment: .leading)
-                  
-                                TextField(R.l10n.emailAddress(), text: $email)
-                                    .focused($emailFieldIsFocused)
-                                    .padding()
-                                    .background(Color.colorF6F6F6)
-                                    .cornerRadius(10)
-                                    .keyboardType(.emailAddress)
-                                    .autocapitalization(.none)
-                                    .padding(.top, 16)
-                                
-                                SecureField(R.l10n.password(), text: $password)
-                                    .focused($passwordFieldIsFocused)
-                                    .padding()
-                                    .background(Color.colorF6F6F6)
-                                    .cornerRadius(10)
-                                    .autocapitalization(.none)
-                                    .padding(.top, 16)
-                                
-                                SecureField(R.l10n.password(), text: $confirmPassword)
-                                    .focused($passwordFieldIsFocused)
-                                    .padding()
-                                    .background(Color.colorF6F6F6)
-                                    .cornerRadius(10)
-                                    .autocapitalization(.none)
-                                    .disableAutocorrection(true)
-                                    .padding(.top, 16)
-                                    .padding(.bottom,16)
-                            
-                                
-                                CustomButton(title: R.l10n.signIn()) {
-                                    AuthenService.shared.signUpWithEmailPassword(email: email,
-                                                                                 password: password,
-                                                                                 confirmPassword: confirmPassword) {  success, errorMessage in
-                                        if success {
-                                            isLoggedIn = true
-                                        } else {
-                                            alertTitle = R.l10n.loginFail()
-                                            alertMessage = errorMessage ?? ""
-                                            showAlert = true
-                                        }
-                                    }
-                                }
-                                .padding(.top, 0)
-                                .navigationDestination(isPresented: $isLoggedIn) {
-                                    BaseCurrencyView().navigationBarHidden(true)
-                                }
-                                
-                                LoginWithGoogle()
-                                    .padding(.top, 24)
-                                
-                                Spacer()
-                                    .frame(height: 60)
-                                
-                                ContinueAsGuest()
-                                
-                                Spacer()
-                            }
-                        }
-                        .scrollIndicators(.hidden)
-                        .frame(maxWidth: .infinity)
-                        .padding(.top, 0)
-                        .clipped()
-                    }
-                    .padding(.top, 40)
+        VStack(spacing: 0) {
+            ZStack(alignment: .bottomLeading) {
+                Image(R.image.register.name)
+                    .resizable()
+                    .scaledToFit()
                     .frame(maxWidth: .infinity)
-                    .padding(.bottom, 0)
-                    .padding(.horizontal, 24)
-                    .background(Color.white)
-                    .cornerRadius(20)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 20)
-                            .stroke(Color.white, lineWidth: 1)
-                    )
-                }
+                
+                Text(R.l10n.createAnAccount)
+                    .font(.semibold24)
+                    .foregroundColor(.white)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.leading, 24)
+                    .padding(.bottom, 100)
+            }
+            
+            Spacer()
+        }
+        .overlay(alignment: .bottom) {
+            VStack(spacing: 16) {
+                inputView
+                actionView
+            }
+            .padding(.top, 40)
+            .padding(.bottom, 36)
+            .padding(.horizontal, 24)
+            .background(Color.white)
+            .radius(topLeading: 20, topTrailing: 20)
+        }
+        .alert(isPresented: $viewModel.showAlert) {
+            Alert(
+                title: Text(viewModel.alertTitle),
+                message: Text(viewModel.alertMessage),
+                dismissButton: .default(Text(R.l10n.ok()))
+            )
+        }
+        .ignoresSafeArea(.all)
+    }
+    
+    @MainActor @ViewBuilder
+    private var inputView: some View {
+        HStack {
+            Text(R.l10n.alreadyHaveAnAccount)
+                .font(.medium12)
+                .foregroundColor(.color18181B)
+            
+            Button {
+                app.navi.pop()
+            } label: {
+                Text(R.l10n.signIn)
+                    .font(.medium12)
+                    .foregroundStyle(Color.color4F80FC)
             }
         }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(.bottom, 8)
+        
+        CustomTextField(
+            title: R.l10n.emailAddress(),
+            placeHolder: R.l10n.emailAddress(),
+            value: $viewModel.email,
+            isFocused: $isEmailFocused
+        )
+        .padding(.bottom, 8)
+        
+        CustomTextField(
+            title: R.l10n.password(),
+            placeHolder: R.l10n.password(),
+            value: $viewModel.password,
+            isFocused: $isPasswordFocused,
+            isSecure: true
+        )
+        .padding(.bottom, 8)
+        
+        CustomTextField(
+            title: R.l10n.confirmPassword(),
+            placeHolder: R.l10n.confirmPassword(),
+            value: $viewModel.passwordCorfirm,
+            isFocused: $isConfirmPasswordFocused,
+            isSecure: true
+        )
+    }
+    
+    @MainActor @ViewBuilder
+    private var actionView: some View {
+        CustomButton(
+            title: R.l10n.signUp(),
+            isEnable: .constant(viewModel.enableRegister()),
+            action: {
+                AuthenService.shared.signUpWithEmailPassword(
+                    email: viewModel.email,
+                    password: viewModel.password,
+                    confirmPassword: viewModel.passwordCorfirm
+                ) { success, errorMessage in
+                    if success {
+                        onCompleted?()
+                    } else {
+                        viewModel.showAlert(
+                            title: R.l10n.loginFail(),
+                            message: errorMessage ?? ""
+                        )
+                    }
+                }
+            }
+        )
+        .disabled(viewModel.isLoading)
+        .padding(.top, 0)
+        
+        LoginWithFacebookGoogle(
+            onCompleted: {
+                onCompleted?()
+            },
+            onError: { message in
+                viewModel.showAlert(
+                    title: R.l10n.loginFail(),
+                    message: message
+                )
+            }
+        )
+        .padding(.top, 24)
+        
+        Spacer().frame(height: 60)
+        
+        ContinueAsGuest(
+            onCompleted: {
+                onCompleted?()
+            },
+            onError: { message in
+                viewModel.showAlert(
+                    title: R.l10n.loginFail(),
+                    message: message
+                )
+            }
+        )
     }
 }
 

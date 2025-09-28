@@ -58,7 +58,7 @@ struct _R {
     }
 
 
-    /// This `_R.string.localizable` struct is generated, and contains static references to 42 localization keys.
+    /// This `_R.string.localizable` struct is generated, and contains static references to 44 localization keys.
     struct localizable {
       let source: RswiftResources.StringResource.Source
 
@@ -76,19 +76,19 @@ struct _R {
       /// Locales: en
       var alreadyHaveAnAccount: RswiftResources.StringResource { .init(key: "alreadyHaveAnAccount", tableName: "Localizable", source: source, developmentValue: "Already have an account?", comment: nil) }
 
+      /// en translation: Base Currency
+      ///
+      /// Key: baseCurrency
+      ///
+      /// Locales: en
+      var baseCurrency: RswiftResources.StringResource { .init(key: "baseCurrency", tableName: "Localizable", source: source, developmentValue: "Base Currency", comment: nil) }
+
       /// en translation: Camera
       ///
       /// Key: camera
       ///
       /// Locales: en
       var camera: RswiftResources.StringResource { .init(key: "camera", tableName: "Localizable", source: source, developmentValue: "Camera", comment: nil) }
-
-      /// en translation: Cancle
-      ///
-      /// Key: cancle
-      ///
-      /// Locales: en
-      var cancle: RswiftResources.StringResource { .init(key: "cancle", tableName: "Localizable", source: source, developmentValue: "Cancle", comment: nil) }
 
       /// en translation: Confirm Password
       ///
@@ -328,6 +328,13 @@ struct _R {
       /// Locales: en
       var signUp: RswiftResources.StringResource { .init(key: "signUp", tableName: "Localizable", source: source, developmentValue: "Sign Up", comment: nil) }
 
+      /// en translation: Start
+      ///
+      /// Key: start
+      ///
+      /// Locales: en
+      var start: RswiftResources.StringResource { .init(key: "start", tableName: "Localizable", source: source, developmentValue: "Start", comment: nil) }
+
       /// en translation: The email address is badly formatted.
       ///
       /// Key: theEmailAdressIsBadlyFormated
@@ -349,6 +356,13 @@ struct _R {
       /// Locales: en
       var thisActionCanContainAds: RswiftResources.StringResource { .init(key: "thisActionCanContainAds", tableName: "Localizable", source: source, developmentValue: "This action can contain ads", comment: nil) }
 
+      /// en translation: Username or Email
+      ///
+      /// Key: userNameOrMail
+      ///
+      /// Locales: en
+      var userNameOrMail: RswiftResources.StringResource { .init(key: "userNameOrMail", tableName: "Localizable", source: source, developmentValue: "Username or Email", comment: nil) }
+
       /// en translation: Welcome back! Please enter your detail.
       ///
       /// Key: welcomeBack
@@ -358,33 +372,42 @@ struct _R {
     }
   }
 
-  /// This `_R.color` struct is generated, and contains static references to 7 colors.
+  /// This `_R.color` struct is generated, and contains static references to 10 colors.
   struct color {
     let bundle: Foundation.Bundle
 
     /// Color `AccentColor`.
     var accentColor: RswiftResources.ColorResource { .init(name: "AccentColor", path: [], bundle: bundle) }
 
-    /// Color `black1B`.
-    var black1B: RswiftResources.ColorResource { .init(name: "black1B", path: [], bundle: bundle) }
+    /// Color `color18181B`.
+    var color18181B: RswiftResources.ColorResource { .init(name: "color18181B", path: [], bundle: bundle) }
 
-    /// Color `blue4F`.
-    var blue4F: RswiftResources.ColorResource { .init(name: "blue4F", path: [], bundle: bundle) }
+    /// Color `color484848`.
+    var color484848: RswiftResources.ColorResource { .init(name: "color484848", path: [], bundle: bundle) }
 
-    /// Color `grey48`.
-    var grey48: RswiftResources.ColorResource { .init(name: "grey48", path: [], bundle: bundle) }
+    /// Color `color4F80FC`.
+    var color4F80FC: RswiftResources.ColorResource { .init(name: "color4F80FC", path: [], bundle: bundle) }
 
-    /// Color `greyAF`.
-    var greyAF: RswiftResources.ColorResource { .init(name: "greyAF", path: [], bundle: bundle) }
+    /// Color `color8B8FEB`.
+    var color8B8FEB: RswiftResources.ColorResource { .init(name: "color8B8FEB", path: [], bundle: bundle) }
 
-    /// Color `purple8B`.
-    var purple8B: RswiftResources.ColorResource { .init(name: "purple8B", path: [], bundle: bundle) }
+    /// Color `colorAFAFAF`.
+    var colorAFAFAF: RswiftResources.ColorResource { .init(name: "colorAFAFAF", path: [], bundle: bundle) }
 
-    /// Color `whiteE6`.
-    var whiteE6: RswiftResources.ColorResource { .init(name: "whiteE6", path: [], bundle: bundle) }
+    /// Color `colorC1C1C1`.
+    var colorC1C1C1: RswiftResources.ColorResource { .init(name: "colorC1C1C1", path: [], bundle: bundle) }
+
+    /// Color `colorC5CFF9`.
+    var colorC5CFF9: RswiftResources.ColorResource { .init(name: "colorC5CFF9", path: [], bundle: bundle) }
+
+    /// Color `colorE6E6E6`.
+    var colorE6E6E6: RswiftResources.ColorResource { .init(name: "colorE6E6E6", path: [], bundle: bundle) }
+
+    /// Color `colorF6F6F6`.
+    var colorF6F6F6: RswiftResources.ColorResource { .init(name: "colorF6F6F6", path: [], bundle: bundle) }
   }
 
-  /// This `_R.image` struct is generated, and contains static references to 19 images.
+  /// This `_R.image` struct is generated, and contains static references to 18 images.
   struct image {
     let bundle: Foundation.Bundle
 
@@ -393,9 +416,6 @@ struct _R {
 
     /// Image `buttonDone`.
     var buttonDone: RswiftResources.ImageResource { .init(name: "buttonDone", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
-
-    /// Image `coin`.
-    var coin: RswiftResources.ImageResource { .init(name: "coin", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
     /// Image `english`.
     var english: RswiftResources.ImageResource { .init(name: "english", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
@@ -472,12 +492,9 @@ struct _R {
     }
   }
 
-  /// This `_R.file` struct is generated, and contains static references to 6 resource files.
+  /// This `_R.file` struct is generated, and contains static references to 7 resource files.
   struct file {
     let bundle: Foundation.Bundle
-
-    /// Resource file `Animation.json`.
-    var animationJson: RswiftResources.FileResource { .init(name: "Animation", pathExtension: "json", bundle: bundle, locale: LocaleReference.none) }
 
     /// Resource file `GoogleService-Info.plist`.
     var googleServiceInfoPlist: RswiftResources.FileResource { .init(name: "GoogleService-Info", pathExtension: "plist", bundle: bundle, locale: LocaleReference.none) }
@@ -493,5 +510,11 @@ struct _R {
 
     /// Resource file `Poppins-SemiBold.ttf`.
     var poppinsSemiBoldTtf: RswiftResources.FileResource { .init(name: "Poppins-SemiBold", pathExtension: "ttf", bundle: bundle, locale: LocaleReference.none) }
+
+    /// Resource file `animation.json`.
+    var animationJson: RswiftResources.FileResource { .init(name: "animation", pathExtension: "json", bundle: bundle, locale: LocaleReference.none) }
+
+    /// Resource file `currency.json`.
+    var currencyJson: RswiftResources.FileResource { .init(name: "currency", pathExtension: "json", bundle: bundle, locale: LocaleReference.none) }
   }
 }

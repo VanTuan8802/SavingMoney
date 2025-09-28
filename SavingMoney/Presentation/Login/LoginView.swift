@@ -6,158 +6,182 @@
 //
 
 import SwiftUI
+import Factory
 
 struct LoginView: View {
-    @State var showSignUpView = false
+    @StateObject var viewModel: LoginViewModel
+    @InjectedObject(\.app) internal var app: AppManager
     
-    @State private var showAlert: Bool = false
-    @State private var alertMessage: String = ""
-    @State private var alertTitle: String = ""
+    private var onCompleted: (() -> Void)?
     
-    @State private var email: String = ""
-    @State private var password: String = ""
-    @FocusState private var emailFieldIsFocused: Bool
-    @FocusState private var passwordFieldIsFocused: Bool
+    @FocusState private var isEmailFocused: Bool
+    @FocusState private var isPasswordFocused: Bool
     
-    @State private var isLoggedIn: Bool = false
+    init(onCompleted: (() -> Void)? = nil) {
+        _viewModel = StateObject(wrappedValue: LoginViewModel())
+        self.onCompleted = onCompleted
+    }
     
     var body: some View {
-        NavigationStack {
-            ZStack(alignment: .top) {
-                VStack(spacing: 0) {
-                    ZStack {
-                        Image(R.image.login.name)
-                            .resizable()
-                            .frame(height: 320)
-                            .ignoresSafeArea(edges: .top)
-                        
-                        VStack(spacing: 8) {
-                            Text(R.l10n.helloWelcomeTo)
-                                .font(.custom(R.file.poppinsMediumTtf.name, size: 16))
-                                .foregroundColor(.white)
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .padding(.leading, 24)
-                            
-                            Text(R.l10n.moneyManager)
-                                .font(.custom(R.file.poppinsMediumTtf.name, size: 24))
-                                .foregroundColor(.white)
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .padding(.leading, 24)
-                        }
-                        .padding(.leading, 24)
-                        .padding(.bottom, 40)
-                    }
-                    .frame(height: 320)
-                    .padding(.top,0)
-                }
-                
-                VStack {
-                    Spacer().frame(height: 200)
-                    VStack {
-                        ScrollView {
-                            VStack {
-                                Text(R.l10n.welcomeBack)
-                                    .font(.custom(R.file.poppinsMediumTtf.name, size: 12))
-                                    .foregroundStyle(.color18181B)
-                                    .frame(maxWidth: .infinity, alignment: .leading)
-                                    .padding(.leading, 8)
-                                
-                                TextField(R.l10n.emailAddress(), text: $email)
-                                    .focused($emailFieldIsFocused)
-                                    .padding()
-                                    .background(Color.colorF6F6F6)
-                                    .cornerRadius(10)
-                                    .keyboardType(.emailAddress)
-                                    .autocapitalization(.none)
-                                    .disableAutocorrection(true)
-                                    .padding(.top, 16)
-                                
-                                SecureField(R.l10n.password(), text: $password)
-                                    .focused($passwordFieldIsFocused)
-                                    .padding()
-                                    .background(Color.colorF6F6F6)
-                                    .cornerRadius(10)
-                                    .autocapitalization(.none)
-                                    .disableAutocorrection(true)
-                                    .padding(.top, 16)
-                                
-                                HStack {
-                                    Button(action: {
-                                        AuthenService.shared.sendPasswordReset(email: email) { success, errorMessage in
-                                            if success {
-                                                alertTitle = R.l10n.openEmail()
-                                                alertMessage = R.l10n.openEmailToConfirmLink()
-                                                showAlert = true
-                                            } else {
-                                                alertTitle = R.l10n.theEmailAdressIsBadlyFormated()
-                                                alertMessage = errorMessage ?? ""
-                                                showAlert = true
-                                            }
-                                        }
-                                    }) {
-                                        Text(R.l10n.forgotPassword())
-                                            .font(.custom(R.file.poppinsRegularTtf.name, size: 13))
-                                            .padding()
-                                            .foregroundColor(Color.color4F80FC)
-                                            .fixedSize()
-                                    }
-                                    .frame(maxWidth: .infinity, alignment: .trailing)
-                                }
-                                
-                                CustomButton(title: R.l10n.signIn()) {
-                                    AuthenService.shared.signInWithEmailPassword(email: email,
-                                                                                 password: password) {  success, errorMessage in
-                                        if success {
-                                            isLoggedIn = true
-                                        } else {
-                                            alertTitle = R.l10n.loginFail()
-                                            alertMessage = errorMessage ?? ""
-                                            showAlert = true
-                                        }
-                                    }
-                                }
-                                .padding(.top, 0)
-                                .navigationDestination(isPresented: $isLoggedIn) {
-                                    BaseCurrencyView().navigationBarHidden(true)
-                                }
-                                
-                                LoginWithGoogle()
-                                    .padding(.top, 24)
-                                
-                                HStack {
-                                    Text(R.l10n.donnotHaveAcount)
-                                        .font(.custom(R.file.poppinsRegularTtf.name, size: 12))
-                                        .foregroundColor(Color.colorC1C1C1)
-                                    NavigationLink(destination: RegisterView().navigationBarBackButtonHidden()) {
-                                        Text(R.l10n.signUp)
-                                            .font(.custom(R.file.poppinsRegularTtf.name, size: 12))
-                                    }
-                                }
-                                
-                                Spacer()
-                                    .frame(height: 60)
-                                
-                                ContinueAsGuest()
-                                
-                                Spacer()
-                            }
-                            
-                        }
-                        .scrollIndicators(.hidden)
-                    }
-                    .padding(.top, 40)
+        VStack(spacing: 0) {
+            ZStack(alignment: .bottomLeading) {
+                Image(R.image.login.name)
+                    .resizable()
+                    .scaledToFit()
                     .frame(maxWidth: .infinity)
-                    .padding(.bottom, 0)
-                    .padding(.horizontal, 24)
-                    .background(Color.white)
-                    .cornerRadius(20)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 20)
-                            .stroke(Color.white, lineWidth: 1)
-                    )
+                
+                VStack(alignment: .leading, spacing: 8) {
+                    Text(R.l10n.helloWelcomeTo)
+                        .font(.medium16)
+                        .foregroundColor(.white)
+                    
+                    Text(R.l10n.moneyManager)
+                        .font(.medium24)
+                        .foregroundColor(.white)
                 }
+                .padding(.leading, 24)
+                .padding(.bottom, 80)
             }
+            
+            Spacer()
         }
+        .overlay(alignment: .bottom) {
+            VStack(spacing: 16) {
+                inputView
+                actionView
+            }
+            .padding(.top, 40)
+            .padding(.bottom, 36)
+            .padding(.horizontal, 24)
+            .background(Color.white)
+            .radius(topLeading: 20, topTrailing: 20)
+        }
+        .alert(isPresented: $viewModel.showAlert) {
+            Alert(
+                title: Text(viewModel.alertTitle),
+                message: Text(viewModel.alertMessage),
+                dismissButton: .default(Text(R.l10n.ok()))
+            )
+        }
+        .ignoresSafeArea(.all)
+    }
+    
+    @MainActor @ViewBuilder
+    private var inputView: some View {
+        Text(R.l10n.welcomeBack)
+            .font(.medium12)
+            .foregroundStyle(.color18181B)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(.bottom, 8)
+        
+        CustomTextField(
+            title: R.l10n.emailAddress(),
+            placeHolder: R.l10n.emailAddress(),
+            value: $viewModel.email,
+            isFocused: $isEmailFocused
+        )
+        .padding(.bottom, 8)
+        
+        CustomTextField(
+            title: R.l10n.password(),
+            placeHolder: R.l10n.password(),
+            value: $viewModel.password,
+            isFocused: $isPasswordFocused,
+            isSecure: true
+        )
+    }
+    
+    @MainActor @ViewBuilder
+    private var actionView: some View {
+        HStack {
+            Button(action: {
+                AuthenService.shared.sendPasswordReset(email: viewModel.email) { success, errorMessage in
+                    if success {
+                        viewModel.showAlert(
+                            title: R.l10n.openEmail(),
+                            message: R.l10n.openEmailToConfirmLink()
+                        )
+                    } else {
+                        viewModel.showAlert(
+                            title: R.l10n.theEmailAdressIsBadlyFormated(),
+                            message: errorMessage ?? ""
+                        )
+                    }
+                }
+            }) {
+                Text(R.l10n.forgotPassword())
+                    .font(.medium10)
+                    .foregroundColor(Color.color4F80FC)
+                    .fixedSize()
+            }
+            .frame(maxWidth: .infinity, alignment: .trailing)
+        }
+        
+        CustomButton(
+            title: R.l10n.signIn(),
+            isEnable: .constant(viewModel.enableSignIn()),
+            action: {
+                AuthenService.shared.signInWithEmailPassword(
+                    email: viewModel.email,
+                    password: viewModel.password) { success, errorMessage in
+                        if success {
+                            onCompleted?()
+                        } else {
+                            viewModel.showAlert(
+                                title: R.l10n.loginFail(),
+                                message: errorMessage ?? ""
+                            )
+                        }
+                    }
+            }
+        )
+        .disabled(viewModel.isLoading)
+        .padding(.top, 0)
+        
+        LoginWithFacebookGoogle(
+            onCompleted: {
+                onCompleted?()
+            },
+            onError: { message in
+                viewModel.showAlert(
+                    title: R.l10n.loginFail(),
+                    message: message
+                )
+            }
+        )
+        .padding(.top, 24)
+        
+        HStack {
+            Text(R.l10n.donnotHaveAcount)
+                .font(.medium12)
+                .foregroundColor(Color.colorC1C1C1)
+            
+            Button(
+                action: {
+                    app.navi.push(.register)
+                },
+                label: {
+                    Text(R.l10n.signUp)
+                        .font(.semibold12)
+                        .foregroundStyle(Color.color4F80FC)
+                })
+            
+        }
+        .padding(.top, 8)
+        
+        Spacer().frame(height: 60)
+        
+        ContinueAsGuest(
+            onCompleted: {
+                onCompleted?()
+            },
+            onError: { message in
+                viewModel.showAlert(
+                    title: R.l10n.loginFail(),
+                    message: message
+                )
+            }
+        )
     }
 }
 

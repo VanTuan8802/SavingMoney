@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum IntroEnum: String, Encodable {
+enum IntroEnum: String, Encodable, CaseIterable, Equatable {
     case intro1
     case intro2
     case intro3

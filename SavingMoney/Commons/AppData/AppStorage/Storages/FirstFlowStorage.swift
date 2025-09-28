@@ -13,17 +13,27 @@ class FirstFlowStorage {
     static let shared = FirstFlowStorage()
 
     private enum Key: String {
-        case didStart
-        case didFinishIntroduction
         case didSelectedLanguage
+        case didFinishIntroduction
+        case didFinishPermision
+        case didSelectCurrency
+        case didFisishLogin
     }
-
-    @AppStorage(Key.didStart, default: false)
-    var didStart: Bool
-
-    @AppStorage(Key.didFinishIntroduction, default: false)
-    var didFinishIntroduction: Bool
-
+    
     @AppStorage(Key.didSelectedLanguage, default: false)
     var didSetupFirstLanguage: Bool
+    
+    @AppStorage(Key.didFinishIntroduction, default: false)
+    var didFinishIntroduction: Bool
+    
+    @AppStorage(Key.didFinishPermision, default: false)
+    var didFinishPermision: Bool
+    
+    
+    @AppStorage(Key.didSelectCurrency, default: false)
+    var didSelectCurrency: Bool
+    
+    
+    @AppStorage(Key.didFisishLogin, default: false)
+    var didFisishLogin: Bool
 }

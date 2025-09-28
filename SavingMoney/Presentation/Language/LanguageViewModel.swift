@@ -11,7 +11,6 @@ final class LanguageViewModel: ObservableObject {
     @Published var isFirstLanguage: Bool = true
     @Published var isShowToast: Bool = false
 
-
     init(isFirstLanguage: Bool) {
         self.isFirstLanguage = isFirstLanguage
     

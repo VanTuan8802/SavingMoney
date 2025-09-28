@@ -8,24 +8,35 @@
 import SwiftUI
 
 struct ContinueAsGuest: View {
+    private var onCompleted: (() -> Void)?
+    private var onError: ((String) -> Void)?
+    
+    init(
+        onCompleted: (() -> Void)? = nil,
+        onError: ((String) -> Void)? = nil
+    ) {
+        self.onCompleted = onCompleted
+        self.onError = onError
+    }
+    
     var body: some View {
-        Button(action: {
-            AuthenService.shared.signInWithAnonymous { success, error in
-                if success {
-                    print("Successfully signed in anonymously!")
-                } else {
-                    print("Anonymous sign-in failed: \(error ?? "Unknown error")")
+        Button(
+            action: {
+                AuthenService.shared.signInWithAnonymous { success, error in
+                    if success {
+                        onCompleted?()
+                    } else {
+                        onError?(error ?? "Unknown error")
+                    }
                 }
-            }
-        }, label: {
-            Text(R.l10n.countinueAsGuest)
-                .font(.custom(R.file.poppinsRegularTtf.name, size: 12))
-                .foregroundColor(Color.color4F80FC)
-                .underline()
-        })
+            },
+            label: {
+                Text(R.l10n.countinueAsGuest)
+                    .font(.regular12)
+                    .foregroundColor(Color.color4F80FC)
+                    .underline()
+            })
+        .frame(height: 24)
     }
 }
 
-#Preview {
-    ContinueAsGuest()
-}

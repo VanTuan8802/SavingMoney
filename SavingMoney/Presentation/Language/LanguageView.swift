@@ -11,13 +11,10 @@ import Factory
 struct LanguageView: View {
     @InjectedObject(\.app) internal var app: AppManager
     private var onCompleted: ( () -> Void)? = nil
-
+    
     @StateObject var viewModel: LanguageViewModel
     
-    let languages: [LanguageEnum] = [.en, .es, .fr, .hi, .pt]
-    
-    @State private var selectedLanguage: LanguageEnum = UserDefaultsData.shared.language
-    @State private var navigateToIntro = false
+    @State private var selectedLanguage: LanguageEnum = LanguageStorage.shared.language
     
     init(isFirstLanguage: Bool, onCompleted: (() -> Void)?) {
         _viewModel = StateObject(wrappedValue: LanguageViewModel(isFirstLanguage: isFirstLanguage))
@@ -25,68 +22,39 @@ struct LanguageView: View {
     }
     
     var body: some View {
-        NavigationStack {
-            VStack {
-                headerView
-                languageSelectionScrollView
-            }
-            .background(Color.white)
-            .navigationDestination(isPresented: $navigateToIntro) {
-                //IntroView().navigationBarHidden(true)
-            }
+        VStack {
+            headerView
+            languageSelectionScrollView
         }
+        .background(Color.white)
+        .ignoresSafeArea(.all)
     }
     
+    @MainActor @ViewBuilder
     private var headerView: some View {
-        HStack {
-            if !viewModel.isFirstLanguage {
-                backButton
-            }
-            
-            Spacer()
-            
-            Text(R.l10n.language)
-                .font(.custom(R.file.poppinsSemiBoldTtf.name, size: 20))
-                .foregroundColor(Color.black)
-            
-            Spacer()
-            
-            doneButton
-        }
-        .padding(.top, 16)
-        .padding(.horizontal, 16)
-        .frame(height: 64)
+        BasicHeaderView(
+            leadingAction: viewModel.isFirstLanguage ? nil : {
+                app.navi.pop()
+            },
+            title: R.l10n.language(),
+            trailingImage: Image(R.image.buttonDone),
+            trailingAction: {
+                LanguageStorage.shared.language = selectedLanguage
+                if viewModel.isFirstLanguage {
+                    onCompleted?()
+                }
+            },
+            trailingImageColor: Color.color4F80FC,
+            showBack: !viewModel.isFirstLanguage
+        )
     }
     
-    private var backButton: some View {
-        Button(action: {
-        }) {
-            Image(R.image.buttonBack.name, bundle: nil)
-                .resizable()
-                .scaledToFit()
-                .frame(width: 32, height: 32)
-        }
-    }
-    
-    private var doneButton: some View {
-        Button(action: {
-            UserDefaultsData.shared.language = selectedLanguage
-            if viewModel.isFirstLanguage {
-                navigateToIntro = true
-            }
-        }) {
-            Image(R.image.buttonDone.name, bundle: nil)
-                .resizable()
-                .scaledToFit()
-                .frame(width: 32, height: 32)
-        }
-    }
-    
+    @MainActor @ViewBuilder
     private var languageSelectionScrollView: some View {
         ScrollView {
             VStack(spacing: 16) {
-                ForEach(languages, id: \.self) { language in
-                    languageButton(for: language)
+                ForEach(LanguageEnum.allCases, id: \.self) { language in
+                    languageItem(for: language)
                 }
             }
             .padding(.horizontal, 16)
@@ -95,7 +63,8 @@ struct LanguageView: View {
         }
     }
     
-    private func languageButton(for language: LanguageEnum) -> some View {
+    @MainActor @ViewBuilder
+    private func languageItem(for language: LanguageEnum) -> some View {
         Button(action: {
             selectedLanguage = language
         }) {
@@ -106,23 +75,21 @@ struct LanguageView: View {
                     .frame(width: 32, height: 32)
                 
                 Text(language.getName)
-                    .font(.custom(R.file.poppinsMediumTtf.name, size: 18))
-                    .foregroundColor(.color18181B)
+                    .font(.medium14)
+                    .foregroundColor(Color.color18181B)
                     .padding(.leading, 8)
                 
                 Spacer()
             }
             .padding(.horizontal, 16)
-            .frame(height: 52)
+            .padding(.vertical, 16)
             .frame(maxWidth: .infinity)
             .background(.white)
-            .cornerRadius(20)
-            .overlay(
-                RoundedRectangle(cornerRadius: 20)
-                    .stroke(
-                        selectedLanguage == language ? .color4F80FC : .colorE6E6E6,
-                        lineWidth: 2
-                    )
+            .radius20
+            .roundedCornerWithBorder(
+                lineWidth: 1,
+                borderColor: selectedLanguage == language ? .color4F80FC : .colorE6E6E6,
+                radius: 20
             )
         }
         .buttonStyle(PlainButtonStyle())

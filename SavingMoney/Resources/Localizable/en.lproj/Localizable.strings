@@ -1,0 +1,53 @@
+/* 
+  Localizable.strings
+  SavingMoney
+
+  Created by Tuấn Nguyễn on 2/3/25.
+  
+*/
+
+language = "Language";
+thisActionCanContainAds = "This action can contain ads";
+onboard_title_1 = "Financial management";
+onboard_content_1 = "Smart expense tracking, easy to manage";
+onboard_title_2 = "Expense analysis chart";
+onboard_content_2 = "Smart chart for monthly financial \n management reporting";
+onboard_title_3 = "Expense classification";
+onboard_content_3 = "Clear income classification with six \n recommended spending jars.";
+onboard_title_4 = "Debt management";
+onboard_content_4 = "Loans are clearly and tightly categorized.";
+next = "Next";
+start = "Start";
+permission = "Permission";
+permissionMessage = "Money manager need the following permissions to work properly";
+camera = "Camera";
+photo = "Photo";
+continue = "Continue";
+helloWelcomeTo = "Hello, Welcome to";
+moneyManager = "Money Manager!";
+welcomeBack = "Welcome back! Please enter your detail.";
+emailAddress = "Email";
+password = "Password";
+confirmPassword = "Confirm Password";
+forgotPassword = "Fogot Password?";
+signIn = "Sign In";
+orSignUp = "Or Sign Up with";
+donnotHaveAcount = "Don’t have an account?";
+signUp = "Sign Up";
+countinueAsGuest = "Continue as Guest mode";
+createAnAccount = "Create \n an account";
+alreadyHaveAnAccount = "Already have an account?";
+loginFail = "Login Fail";
+passwordNoMatch = "Passwords do not match.";
+theEmailAdressIsBadlyFormated = "The email address is badly formatted.";
+theEmailAdressIsUsed = "The email address is already in use by another account.";
+passwordIsTooWeak = "The password is too weak. Please choose a stronger password.";
+accountCreationFaild = "Account creation failed. Please check your information.";
+incorrectLoginOrPassword = "Incorrect login or password";
+noUserWithEmail = "No user found with this email address.";
+openEmailToConfirmLink = "Open email to confirm link";
+openEmail = "Open Email";
+alreadyHaveAnAccount = "Already have an account?";
+userNameOrMail = "Username or Email";
+ok = "OK";
+baseCurrency = "Base Currency";

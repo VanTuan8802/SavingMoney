@@ -16,38 +16,35 @@ struct SplashView: View {
     }
     
     var body: some View {
-        NavigationStack {
-            ZStack {
-                // Background
-                Image(R.image.splash.name, bundle: nil)
+        ZStack {
+            Image(R.image.splash.name, bundle: nil)
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .ignoresSafeArea()
+            
+            VStack(spacing: 16) {
+                Image(R.image.icon.name, bundle: nil)
                     .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    .ignoresSafeArea()
+                    .scaledToFit()
+                    .frame(width: 200, height: 200)
                 
-                VStack(spacing: 16) {
-                    Image(R.image.icon.name, bundle: nil)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 200, height: 200)
-                    
-                    Text("Money Manager")
-                        .font(.custom(R.file.poppinsSemiBoldTtf.name, size: 24))
-                        .foregroundColor(.white)
-                }
-                
-                LottieView(animation: .named(R.file.animationJson.name))
-                    .playing()
-                    .frame(width: 80, height: 80)
-                    .frame(maxWidth: .infinity)
-                    .padding(.bottom, 120)
-                    .frame(maxHeight: .infinity, alignment: .bottom)
+                Text("Money Manager")
+                    .font(.semibold24)
+                    .foregroundColor(.white)
             }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .onAppear {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-                    onCompleted?()
-                }
+            
+            LottieView(animation: .named(R.file.animationJson.name))
+                .playing()
+                .frame(width: 80, height: 80)
+                .frame(maxWidth: .infinity)
+                .padding(.bottom, 80)
+                .frame(maxHeight: .infinity, alignment: .bottom)
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .onAppear {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                onCompleted?()
             }
         }
     }

@@ -17,7 +17,10 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         
         IQKeyboardManager.shared.isEnabled = true
         IQKeyboardManager.shared.resignOnTouchOutside = true
-        IQKeyboardManager.shared.enableAutoToolbar = true
+        IQKeyboardManager.shared.isEnabled = true
+        
+        UITextField.appearance().inputAssistantItem.leadingBarButtonGroups = []
+        UITextField.appearance().inputAssistantItem.trailingBarButtonGroups = []
         return true
     }
 }
@@ -26,8 +29,12 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 @main
 struct SavingMoneyApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-      @Environment(\.scenePhase) var scenePhase
-      @InjectedObject(\.app) internal var app: AppManager
+    @Environment(\.scenePhase) var scenePhase
+    @InjectedObject(\.app) internal var app: AppManager
+    
+    init() {
+        CurrencyManager.shared.getCurrency()
+    }
     
     var body: some Scene {
         WindowGroup {
