@@ -9,11 +9,16 @@ import SwiftUI
 import Lottie
 
 struct SplashView: View {
-    @State private var navigateToLanguageView = false
+    private var onCompleted: (() -> Void)?
+    
+    init(onCompleted: (() -> Void)? = nil) {
+        self.onCompleted = onCompleted
+    }
     
     var body: some View {
         NavigationStack {
             ZStack {
+                // Background
                 Image(R.image.splash.name, bundle: nil)
                     .resizable()
                     .aspectRatio(contentMode: .fill)
@@ -31,32 +36,19 @@ struct SplashView: View {
                         .foregroundColor(.white)
                 }
                 
-                VStack(spacing: 8) {
-                    LottieView(animation: .named(R.file.animationJson.name))
-                        .playing()
-                        .frame(width: 80, height: 80)
-                    
-                    
-                    
-                    Text(R.l10n.thisActionCanContainAds)
-                        .font(.custom(R.file.poppinsRegularTtf.name, size: 14))
-                        .foregroundColor(.white)
-                        .multilineTextAlignment(.center)
-                        .padding(.horizontal, 16)
-                }
-                .frame(maxWidth: .infinity)
-                .padding(.bottom, 120)
-                .frame(maxHeight: .infinity, alignment: .bottom)
+                LottieView(animation: .named(R.file.animationJson.name))
+                    .playing()
+                    .frame(width: 80, height: 80)
+                    .frame(maxWidth: .infinity)
+                    .padding(.bottom, 120)
+                    .frame(maxHeight: .infinity, alignment: .bottom)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .onAppear {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-                    navigateToLanguageView = true
+                    onCompleted?()
                 }
-            }.navigationDestination(isPresented: $navigateToLanguageView) {
-                LanguageView(languegeIntro: true).navigationBarHidden(true)
             }
-            
         }
     }
 }

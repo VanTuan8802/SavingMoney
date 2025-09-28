@@ -26,7 +26,7 @@ struct PermissionSwitchView: UIViewRepresentable {
         view.backgroundColor = .white
         view.layer.cornerRadius = 10
         view.layer.borderWidth = 0.5
-        view.layer.borderColor = Color(.whiteE6).cgColor
+        view.layer.borderColor = Color(.colorE6E6E6).cgColor
         view.layer.masksToBounds = true
 
         let label = UILabel()

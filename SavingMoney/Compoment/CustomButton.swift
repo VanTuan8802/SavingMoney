@@ -10,7 +10,7 @@ import SwiftUI
 struct CustomButton: View {
     var title: String
     var action: () -> Void
-
+    
     var body: some View {
         Button(action: {
             action()
@@ -21,7 +21,10 @@ struct CustomButton: View {
                 .padding()
                 .foregroundColor(.white)
                 .background(
-                    LinearGradient(gradient: Gradient(colors: [.blue4F, .purple8B]), startPoint: .leading, endPoint: .trailing)
+                    LinearGradient(gradient: Gradient(
+                        colors: [.color4F80FC, .color8B8FEB]),
+                                   startPoint: .leading,
+                                   endPoint: .trailing)
                 )
                 .cornerRadius(10)
         }

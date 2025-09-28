@@ -14,78 +14,65 @@ struct IntroView: View {
                                .intro4]
     
     @State private var currentPage = 0
-    @State private var navigateToPermission = false
+    
+    private var onCompleted: (() -> Void)
+    
+    init(onCompleted: @escaping (() -> Void)) {
+        self.onCompleted = onCompleted
+    }
 
     var body: some View {
-        NavigationStack {
-            VStack(spacing: 16) {
-                Image(intros[currentPage].getImageIntro)
-                    .resizable()
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    .ignoresSafeArea(edges: .top)
-                
-                TabView(selection: $currentPage) {
-                    ForEach(intros.indices, id: \.self) { index in
-                        VStack {
-                            Text(intros[index].getTitle)
-                                .font(.custom(R.file.poppinsMediumTtf.name, size: 20))
-                                .fontWeight(.semibold)
-                                .fixedSize()
-                                .foregroundColor(.blue4F)
-                                .multilineTextAlignment(.center)
-                                .padding(.top, 0)
+        VStack(spacing: 16) {
+            Image(intros[currentPage].getImageIntro)
+                .resizable()
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .ignoresSafeArea(edges: .top)
+            
+            TabView(selection: $currentPage) {
+                ForEach(Array(intros.enumerated()), id: \.offset) { index, intro in
+                    VStack {
+                        Text(intro.getTitle)
+                            .font(.custom(R.file.poppinsMediumTtf.name, size: 20))
+                            .fontWeight(.semibold)
+                            .foregroundColor(Color.color4F80FC)
+                            .multilineTextAlignment(.center)
 
-                            Text(intros[index].getContent)
-                                .font(.custom(R.file.poppinsMediumTtf.name, size: 14))
-                                .padding(.horizontal, 16)
-                                .fixedSize()
-                                .foregroundColor(.black1B)
-                                .multilineTextAlignment(.center)
-                                .padding(.top, 0)
-                            
-                        }
-                        .tag(index)
-                        .padding(.top,0)
-                        .frame(alignment: .top)
+                        Text(intro.getContent)
+                            .font(.custom(R.file.poppinsMediumTtf.name, size: 14))
+                            .padding(.horizontal, 16)
+                            .foregroundColor(Color.color18181B)
+                            .multilineTextAlignment(.center)
                     }
+                    .tag(index)
                 }
-                .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
-                .padding(.top, 16)
-                .frame(height:80)
-                
-                Button(action: {
-                    if currentPage < intros.count - 1 {
-                        currentPage += 1
-                    } else {
-                        navigateToPermission = true
-                    }
-                }) {
-                    Text(R.l10n.next())
-                        .font(.custom(R.file.poppinsRegularTtf.name, size: 16))
-                        .frame(maxWidth: .infinity)
-                        .foregroundColor(.purple8B)
-                        .cornerRadius(10)
+            }
+            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+            .padding(.top, 16)
+            .frame(height:80)
+            
+            Button(action: {
+                if currentPage < intros.count - 1 {
+                    currentPage += 1
+                } else {
+                    onCompleted()
                 }
-                .padding(.top, 8)
-                
-                HStack(spacing: 8) {
-                    ForEach(intros.indices, id: \.self) { index in
-                        Circle()
-                            .fill(index == currentPage ? Color.blue : Color.gray)
-                            .frame(width: 10, height: 10)
-                    }
+            }) {
+                Text(R.l10n.next())
+                    .font(.custom(R.file.poppinsRegularTtf.name, size: 16))
+                    .frame(maxWidth: .infinity)
+                    .foregroundColor(Color.color8B8FEB)
+                    .cornerRadius(10)
+            }
+            .padding(.top, 8)
+            
+            HStack(spacing: 8) {
+                ForEach(intros.indices, id: \.self) { index in
+                    Circle()
+                        .fill(index == currentPage ? Color.blue : Color.gray)
+                        .frame(width: 10, height: 10)
                 }
+            }
 
-            }
-            .padding(.bottom, 16)
-            .navigationDestination(isPresented: $navigateToPermission) {
-                PermissionView().navigationBarHidden(true)
-            }
-            .background(Color.white)
         }
     }
-}
-
-#Preview {
-    IntroView()
 }

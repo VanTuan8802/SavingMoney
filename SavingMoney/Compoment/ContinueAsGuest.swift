@@ -20,7 +20,7 @@ struct ContinueAsGuest: View {
         }, label: {
             Text(R.l10n.countinueAsGuest)
                 .font(.custom(R.file.poppinsRegularTtf.name, size: 12))
-                .foregroundColor(.blue4F)
+                .foregroundColor(Color.color4F80FC)
                 .underline()
         })
     }

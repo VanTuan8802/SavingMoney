@@ -16,7 +16,7 @@ struct PermissionView: View {
             VStack {
                 Text(R.l10n.permission)
                     .font(.custom(R.file.poppinsSemiBoldTtf.name, size: 20))
-                    .foregroundColor(.black1B)
+                    .foregroundColor(.color18181B)
                     .frame(maxWidth: .infinity, alignment: .top)
                     .padding(.top, 4)
                 
@@ -24,7 +24,7 @@ struct PermissionView: View {
                 
                 Text(R.l10n.permissionMessage)
                     .font(.custom(R.file.poppinsMediumTtf.name, size: 14))
-                    .foregroundColor(.black1B)
+                    .foregroundColor(.color18181B)
                     .frame(maxWidth: .infinity, alignment: .top)
                     .padding(.top, 4)
                     .padding(.bottom, 36)

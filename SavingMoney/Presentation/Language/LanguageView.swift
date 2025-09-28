@@ -6,17 +6,22 @@
 //
 
 import SwiftUI
+import Factory
 
 struct LanguageView: View {
-    let languegeIntro: Bool
+    @InjectedObject(\.app) internal var app: AppManager
+    private var onCompleted: ( () -> Void)? = nil
+
+    @StateObject var viewModel: LanguageViewModel
     
     let languages: [LanguageEnum] = [.en, .es, .fr, .hi, .pt]
     
     @State private var selectedLanguage: LanguageEnum = UserDefaultsData.shared.language
     @State private var navigateToIntro = false
     
-    init(languegeIntro: Bool) {
-        self.languegeIntro = languegeIntro
+    init(isFirstLanguage: Bool, onCompleted: (() -> Void)?) {
+        _viewModel = StateObject(wrappedValue: LanguageViewModel(isFirstLanguage: isFirstLanguage))
+        self.onCompleted = onCompleted
     }
     
     var body: some View {
@@ -27,14 +32,14 @@ struct LanguageView: View {
             }
             .background(Color.white)
             .navigationDestination(isPresented: $navigateToIntro) {
-                IntroView().navigationBarHidden(true)
+                //IntroView().navigationBarHidden(true)
             }
         }
     }
     
     private var headerView: some View {
         HStack {
-            if !languegeIntro {
+            if !viewModel.isFirstLanguage {
                 backButton
             }
             
@@ -66,7 +71,7 @@ struct LanguageView: View {
     private var doneButton: some View {
         Button(action: {
             UserDefaultsData.shared.language = selectedLanguage
-            if languegeIntro {
+            if viewModel.isFirstLanguage {
                 navigateToIntro = true
             }
         }) {
@@ -102,7 +107,7 @@ struct LanguageView: View {
                 
                 Text(language.getName)
                     .font(.custom(R.file.poppinsMediumTtf.name, size: 18))
-                    .foregroundColor(.black1B)
+                    .foregroundColor(.color18181B)
                     .padding(.leading, 8)
                 
                 Spacer()
@@ -115,7 +120,7 @@ struct LanguageView: View {
             .overlay(
                 RoundedRectangle(cornerRadius: 20)
                     .stroke(
-                        selectedLanguage == language ? .blue4F : .whiteE6,
+                        selectedLanguage == language ? .color4F80FC : .colorE6E6E6,
                         lineWidth: 2
                     )
             )
@@ -124,6 +129,3 @@ struct LanguageView: View {
     }
 }
 
-#Preview {
-    LanguageView(languegeIntro: true)
-}

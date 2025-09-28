@@ -19,6 +19,7 @@ target 'SavingMoney' do
     pod 'GoogleSignIn'
     pod 'FBSDKLoginKit'
     pod 'GoogleSignInSwiftSupport'
+    pod 'Factory'
     # Pods for SavingMoney
   # Pods for SavingMoney
 

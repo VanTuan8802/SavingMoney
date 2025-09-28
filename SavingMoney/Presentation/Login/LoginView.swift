@@ -58,14 +58,14 @@ struct LoginView: View {
                             VStack {
                                 Text(R.l10n.welcomeBack)
                                     .font(.custom(R.file.poppinsMediumTtf.name, size: 12))
-                                    .foregroundStyle(.black1B)
+                                    .foregroundStyle(.color18181B)
                                     .frame(maxWidth: .infinity, alignment: .leading)
                                     .padding(.leading, 8)
                                 
                                 TextField(R.l10n.emailAddress(), text: $email)
                                     .focused($emailFieldIsFocused)
                                     .padding()
-                                    .background(Color.greyF6)
+                                    .background(Color.colorF6F6F6)
                                     .cornerRadius(10)
                                     .keyboardType(.emailAddress)
                                     .autocapitalization(.none)
@@ -75,7 +75,7 @@ struct LoginView: View {
                                 SecureField(R.l10n.password(), text: $password)
                                     .focused($passwordFieldIsFocused)
                                     .padding()
-                                    .background(Color.greyF6)
+                                    .background(Color.colorF6F6F6)
                                     .cornerRadius(10)
                                     .autocapitalization(.none)
                                     .disableAutocorrection(true)
@@ -98,7 +98,7 @@ struct LoginView: View {
                                         Text(R.l10n.forgotPassword())
                                             .font(.custom(R.file.poppinsRegularTtf.name, size: 13))
                                             .padding()
-                                            .foregroundColor(.blue4F)
+                                            .foregroundColor(Color.color4F80FC)
                                             .fixedSize()
                                     }
                                     .frame(maxWidth: .infinity, alignment: .trailing)
@@ -127,7 +127,7 @@ struct LoginView: View {
                                 HStack {
                                     Text(R.l10n.donnotHaveAcount)
                                         .font(.custom(R.file.poppinsRegularTtf.name, size: 12))
-                                        .foregroundColor(Color.greyC1)
+                                        .foregroundColor(Color.colorC1C1C1)
                                     NavigationLink(destination: RegisterView().navigationBarBackButtonHidden()) {
                                         Text(R.l10n.signUp)
                                             .font(.custom(R.file.poppinsRegularTtf.name, size: 12))

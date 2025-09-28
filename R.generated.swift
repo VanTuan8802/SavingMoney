@@ -358,29 +358,29 @@ struct _R {
     /// Color `AccentColor`.
     var accentColor: RswiftResources.ColorResource { .init(name: "AccentColor", path: [], bundle: bundle) }
 
-    /// Color `black1B`.
-    var black1B: RswiftResources.ColorResource { .init(name: "black1B", path: [], bundle: bundle) }
+    /// Color `color18181B`.
+    var color18181B: RswiftResources.ColorResource { .init(name: "color18181B", path: [], bundle: bundle) }
 
-    /// Color `blue4F`.
-    var blue4F: RswiftResources.ColorResource { .init(name: "blue4F", path: [], bundle: bundle) }
+    /// Color `color484848`.
+    var color484848: RswiftResources.ColorResource { .init(name: "color484848", path: [], bundle: bundle) }
 
-    /// Color `grey48`.
-    var grey48: RswiftResources.ColorResource { .init(name: "grey48", path: [], bundle: bundle) }
+    /// Color `color4F80FC`.
+    var color4F80FC: RswiftResources.ColorResource { .init(name: "color4F80FC", path: [], bundle: bundle) }
 
-    /// Color `greyAF`.
-    var greyAF: RswiftResources.ColorResource { .init(name: "greyAF", path: [], bundle: bundle) }
+    /// Color `color8B8FEB`.
+    var color8B8FEB: RswiftResources.ColorResource { .init(name: "color8B8FEB", path: [], bundle: bundle) }
 
-    /// Color `greyC1`.
-    var greyC1: RswiftResources.ColorResource { .init(name: "greyC1", path: [], bundle: bundle) }
+    /// Color `colorAFAFAF`.
+    var colorAFAFAF: RswiftResources.ColorResource { .init(name: "colorAFAFAF", path: [], bundle: bundle) }
 
-    /// Color `greyF6`.
-    var greyF6: RswiftResources.ColorResource { .init(name: "greyF6", path: [], bundle: bundle) }
+    /// Color `colorC1C1C1`.
+    var colorC1C1C1: RswiftResources.ColorResource { .init(name: "colorC1C1C1", path: [], bundle: bundle) }
 
-    /// Color `purple8B`.
-    var purple8B: RswiftResources.ColorResource { .init(name: "purple8B", path: [], bundle: bundle) }
+    /// Color `colorE6E6E6`.
+    var colorE6E6E6: RswiftResources.ColorResource { .init(name: "colorE6E6E6", path: [], bundle: bundle) }
 
-    /// Color `whiteE6`.
-    var whiteE6: RswiftResources.ColorResource { .init(name: "whiteE6", path: [], bundle: bundle) }
+    /// Color `colorF6F6F6`.
+    var colorF6F6F6: RswiftResources.ColorResource { .init(name: "colorF6F6F6", path: [], bundle: bundle) }
   }
 
   /// This `_R.image` struct is generated, and contains static references to 18 images.
