@@ -91,16 +91,13 @@ struct ContainerView: View {
                     }
                 )
             } else if !didFisishLogin {
-//                LoginView(
-//                    onCompleted: {
-//                        withAnimation {
-//                            didFisishLogin = true
-//                        }
-//                    }
-//                )
-                
-                NavigationRoot(destination: .login,
-                                     navigation: login)
+                LoginView(
+                    onCompleted: {
+                        withAnimation {
+                            didFisishLogin = true
+                        }
+                    }
+                )
                 .onAppear {
                     app.navi = login
                 }

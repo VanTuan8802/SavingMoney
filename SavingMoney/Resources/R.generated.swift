@@ -58,7 +58,7 @@ struct _R {
     }
 
 
-    /// This `_R.string.localizable` struct is generated, and contains static references to 44 localization keys.
+    /// This `_R.string.localizable` struct is generated, and contains static references to 48 localization keys.
     struct localizable {
       let source: RswiftResources.StringResource.Source
 
@@ -118,6 +118,13 @@ struct _R {
       /// Locales: en
       var createAnAccount: RswiftResources.StringResource { .init(key: "createAnAccount", tableName: "Localizable", source: source, developmentValue: "Create \n an account", comment: nil) }
 
+      /// en translation: Currencies
+      ///
+      /// Key: currencies
+      ///
+      /// Locales: en
+      var currencies: RswiftResources.StringResource { .init(key: "currencies", tableName: "Localizable", source: source, developmentValue: "Currencies", comment: nil) }
+
       /// en translation: Don’t have an account?
       ///
       /// Key: donnotHaveAcount
@@ -131,6 +138,13 @@ struct _R {
       ///
       /// Locales: en
       var emailAddress: RswiftResources.StringResource { .init(key: "emailAddress", tableName: "Localizable", source: source, developmentValue: "Email", comment: nil) }
+
+      /// en translation: Favorites
+      ///
+      /// Key: favorites
+      ///
+      /// Locales: en
+      var favorites: RswiftResources.StringResource { .init(key: "favorites", tableName: "Localizable", source: source, developmentValue: "Favorites", comment: nil) }
 
       /// en translation: Fogot Password?
       ///
@@ -187,6 +201,13 @@ struct _R {
       ///
       /// Locales: en
       var noUserWithEmail: RswiftResources.StringResource { .init(key: "noUserWithEmail", tableName: "Localizable", source: source, developmentValue: "No user found with this email address.", comment: nil) }
+
+      /// en translation: No data
+      ///
+      /// Key: nodata
+      ///
+      /// Locales: en
+      var nodata: RswiftResources.StringResource { .init(key: "nodata", tableName: "Localizable", source: source, developmentValue: "No data", comment: nil) }
 
       /// en translation: OK
       ///
@@ -313,6 +334,13 @@ struct _R {
       ///
       /// Locales: en
       var photo: RswiftResources.StringResource { .init(key: "photo", tableName: "Localizable", source: source, developmentValue: "Photo", comment: nil) }
+
+      /// en translation: Search
+      ///
+      /// Key: search
+      ///
+      /// Locales: en
+      var search: RswiftResources.StringResource { .init(key: "search", tableName: "Localizable", source: source, developmentValue: "Search", comment: nil) }
 
       /// en translation: Sign In
       ///

@@ -144,7 +144,7 @@ struct RegisterView: View {
         )
         .padding(.top, 24)
         
-        Spacer().frame(height: 60)
+        Spacer().frame(height: 16)
         
         ContinueAsGuest(
             onCompleted: {
