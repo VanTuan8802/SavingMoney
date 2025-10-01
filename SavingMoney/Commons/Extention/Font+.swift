@@ -51,6 +51,7 @@ extension Font {
     static let semibold16 = Font.custom(FontFamily.semiBold.font, size: 16)
     static let semibold20 = Font.custom(FontFamily.semiBold.font, size: 20)
     static let semibold24 = Font.custom(FontFamily.semiBold.font, size: 24)
+    static let semibold32 = Font.custom(FontFamily.semiBold.font, size: 32)
 
     /// Bold
     static let bold12 = Font.custom(FontFamily.bold.font, size: 12)

@@ -112,7 +112,7 @@ struct ContainerView: View {
                     }
                 )
             } else {
-                LoginView()
+                BudgetView()
             }
         }
     }

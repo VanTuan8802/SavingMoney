@@ -29,7 +29,7 @@ struct BasicHeaderView: View {
          trailingAction: ( () -> Void)? = nil,
          trailingImageColor: Color? = nil,
          isFullScreen: Bool = true,
-         showBack: Bool) {
+         showBack: Bool = true) {
         self.leadingAction = leadingAction
         self.leadingImageColor = leadingImageColor
         self.title = title
