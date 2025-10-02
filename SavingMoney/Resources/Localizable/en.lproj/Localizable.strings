@@ -60,3 +60,7 @@ pleaseEnterYourBudget = "Please enter your budget, Money manager will help you n
 year = "Year";
 month = "Month";
 save = "Save";
+home = "Home";
+statistic = "Statistic";
+budget = "Budget";
+setting = "Setting";

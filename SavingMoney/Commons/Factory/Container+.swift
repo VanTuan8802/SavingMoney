@@ -25,7 +25,19 @@ extension Container {
         }.singleton
     }
 
-    var archiveNavi: Factory<Navigation> {
+    var statistic: Factory<Navigation> {
+        Factory(self) { @MainActor in
+            Navigation()
+        }.singleton
+    }
+    
+    var budget: Factory<Navigation> {
+        Factory(self) { @MainActor in
+            Navigation()
+        }.singleton
+    }
+    
+    var setting: Factory<Navigation> {
         Factory(self) { @MainActor in
             Navigation()
         }.singleton

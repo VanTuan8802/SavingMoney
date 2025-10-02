@@ -58,7 +58,7 @@ struct _R {
     }
 
 
-    /// This `_R.string.localizable` struct is generated, and contains static references to 53 localization keys.
+    /// This `_R.string.localizable` struct is generated, and contains static references to 57 localization keys.
     struct localizable {
       let source: RswiftResources.StringResource.Source
 
@@ -82,6 +82,13 @@ struct _R {
       ///
       /// Locales: en
       var baseCurrency: RswiftResources.StringResource { .init(key: "baseCurrency", tableName: "Localizable", source: source, developmentValue: "Base Currency", comment: nil) }
+
+      /// en translation: Budget
+      ///
+      /// Key: budget
+      ///
+      /// Locales: en
+      var budget: RswiftResources.StringResource { .init(key: "budget", tableName: "Localizable", source: source, developmentValue: "Budget", comment: nil) }
 
       /// en translation: Camera
       ///
@@ -159,6 +166,13 @@ struct _R {
       ///
       /// Locales: en
       var helloWelcomeTo: RswiftResources.StringResource { .init(key: "helloWelcomeTo", tableName: "Localizable", source: source, developmentValue: "Hello, Welcome to", comment: nil) }
+
+      /// en translation: Home
+      ///
+      /// Key: home
+      ///
+      /// Locales: en
+      var home: RswiftResources.StringResource { .init(key: "home", tableName: "Localizable", source: source, developmentValue: "Home", comment: nil) }
 
       /// en translation: Incorrect login or password
       ///
@@ -370,6 +384,13 @@ struct _R {
       /// Locales: en
       var setYourBudget: RswiftResources.StringResource { .init(key: "setYourBudget", tableName: "Localizable", source: source, developmentValue: "Set your Budget", comment: nil) }
 
+      /// en translation: Setting
+      ///
+      /// Key: setting
+      ///
+      /// Locales: en
+      var setting: RswiftResources.StringResource { .init(key: "setting", tableName: "Localizable", source: source, developmentValue: "Setting", comment: nil) }
+
       /// en translation: Sign In
       ///
       /// Key: signIn
@@ -390,6 +411,13 @@ struct _R {
       ///
       /// Locales: en
       var start: RswiftResources.StringResource { .init(key: "start", tableName: "Localizable", source: source, developmentValue: "Start", comment: nil) }
+
+      /// en translation: Statistic
+      ///
+      /// Key: statistic
+      ///
+      /// Locales: en
+      var statistic: RswiftResources.StringResource { .init(key: "statistic", tableName: "Localizable", source: source, developmentValue: "Statistic", comment: nil) }
 
       /// en translation: The email address is badly formatted.
       ///
@@ -435,7 +463,7 @@ struct _R {
     }
   }
 
-  /// This `_R.color` struct is generated, and contains static references to 13 colors.
+  /// This `_R.color` struct is generated, and contains static references to 15 colors.
   struct color {
     let bundle: Foundation.Bundle
 
@@ -457,6 +485,9 @@ struct _R {
     /// Color `color4F80FC`.
     var color4F80FC: RswiftResources.ColorResource { .init(name: "color4F80FC", path: [], bundle: bundle) }
 
+    /// Color `color5987FD`.
+    var color5987FD: RswiftResources.ColorResource { .init(name: "color5987FD", path: [], bundle: bundle) }
+
     /// Color `color8B8FEB`.
     var color8B8FEB: RswiftResources.ColorResource { .init(name: "color8B8FEB", path: [], bundle: bundle) }
 
@@ -469,6 +500,9 @@ struct _R {
     /// Color `colorC5CFF9`.
     var colorC5CFF9: RswiftResources.ColorResource { .init(name: "colorC5CFF9", path: [], bundle: bundle) }
 
+    /// Color `colorCDCDCD`.
+    var colorCDCDCD: RswiftResources.ColorResource { .init(name: "colorCDCDCD", path: [], bundle: bundle) }
+
     /// Color `colorDC2626`.
     var colorDC2626: RswiftResources.ColorResource { .init(name: "colorDC2626", path: [], bundle: bundle) }
 
@@ -479,12 +513,18 @@ struct _R {
     var colorF6F6F6: RswiftResources.ColorResource { .init(name: "colorF6F6F6", path: [], bundle: bundle) }
   }
 
-  /// This `_R.image` struct is generated, and contains static references to 19 images.
+  /// This `_R.image` struct is generated, and contains static references to 27 images.
   struct image {
     let bundle: Foundation.Bundle
 
     /// Image `budget`.
     var budget: RswiftResources.ImageResource { .init(name: "budget", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `budget_normal`.
+    var budget_normal: RswiftResources.ImageResource { .init(name: "budget_normal", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `budget_selected`.
+    var budget_selected: RswiftResources.ImageResource { .init(name: "budget_selected", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
     /// Image `buttonBack`.
     var buttonBack: RswiftResources.ImageResource { .init(name: "buttonBack", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
@@ -506,6 +546,12 @@ struct _R {
 
     /// Image `hindi`.
     var hindi: RswiftResources.ImageResource { .init(name: "hindi", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `home_normal`.
+    var home_normal: RswiftResources.ImageResource { .init(name: "home_normal", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `home_seleted`.
+    var home_seleted: RswiftResources.ImageResource { .init(name: "home_seleted", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
     /// Image `icon`.
     var icon: RswiftResources.ImageResource { .init(name: "icon", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
@@ -534,11 +580,23 @@ struct _R {
     /// Image `register`.
     var register: RswiftResources.ImageResource { .init(name: "register", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
+    /// Image `setting_normal`.
+    var setting_normal: RswiftResources.ImageResource { .init(name: "setting_normal", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `setting_selected`.
+    var setting_selected: RswiftResources.ImageResource { .init(name: "setting_selected", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
     /// Image `spanish`.
     var spanish: RswiftResources.ImageResource { .init(name: "spanish", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
 
     /// Image `splash`.
     var splash: RswiftResources.ImageResource { .init(name: "splash", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `statistic_normal`.
+    var statistic_normal: RswiftResources.ImageResource { .init(name: "statistic_normal", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `statistic_selected`.
+    var statistic_selected: RswiftResources.ImageResource { .init(name: "statistic_selected", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
   }
 
   /// This `_R.font` struct is generated, and contains static references to 4 fonts.

@@ -9,6 +9,10 @@ import Foundation
 
 @MainActor
 class AppManager: ObservableObject {
+    
+    /// Tabbar
+    @Published var isShowTabbar: Bool = true
+    @Published var activeTab: TabBarItem = .home
 
     /// Navi
     @Published var navi: Navigation = Navigation()

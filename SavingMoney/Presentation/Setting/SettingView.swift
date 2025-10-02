@@ -1,5 +1,5 @@
 //
-//  BudgetView.swift
+//  SettingView.swift
 //  SavingMoney
 //
 //  Created by VanTuan8802 on 2/10/25.
@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-struct BudgetView: View {
+struct SettingView: View {
     var body: some View {
-        Text("BudgetView")
+        Text("SettingView")
     }
 }
 
 #Preview {
-    BudgetView()
+    SettingView()
 }

@@ -112,7 +112,7 @@ struct ContainerView: View {
                     }
                 )
             } else {
-                BudgetView()
+                TabBarView()
             }
         }
     }

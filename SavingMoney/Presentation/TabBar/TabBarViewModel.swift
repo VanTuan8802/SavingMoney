@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+final class TabBarViewModel: ObservableObject {
+    
+}
+    

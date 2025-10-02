@@ -15,7 +15,10 @@ enum Destination: Equatable {
                       onCompleted: (() -> Void))
     case login
     case register
-    
+    case home
+    case statistic
+    case budget
+    case setting
 }
 
 extension Destination {
@@ -28,6 +31,10 @@ extension Destination {
         case .permission: return "permission"
         case .login: return "login"
         case .register: return "register"
+        case .home: return "home"
+        case .statistic: return "statistic"
+        case .budget: return "budget"
+        case .setting: return "setting"
         }
     }
 }
@@ -56,6 +63,14 @@ extension Navigation {
             LoginView()
         case .register:
             RegisterView()
+        case .home:
+            HomeView()
+        case .statistic:
+            StatisticView()
+        case .budget:
+            BudgetView()
+        case .setting:
+            SettingView()
         }
     }
 }

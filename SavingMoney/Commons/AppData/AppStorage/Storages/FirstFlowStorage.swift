@@ -18,6 +18,7 @@ class FirstFlowStorage {
         case didFinishPermision
         case didSelectCurrency
         case didFisishLogin
+        case didOpenFirstApp
     }
     
     @AppStorage(Key.didSelectedLanguage, default: false)
@@ -36,4 +37,7 @@ class FirstFlowStorage {
     
     @AppStorage(Key.didFisishLogin, default: false)
     var didFisishLogin: Bool
+    
+    @AppStorage(Key.didOpenFirstApp, default: false)
+    var didOpenFirstApp: Bool
 }
